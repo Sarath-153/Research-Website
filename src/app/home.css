@@ -1,0 +1,989 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  color: #111827;
+  background: #ffffff;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: calc(100vh - 100px);
+  place-items: center;
+  overflow: hidden;
+  background-image: url('./components/resech image.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 32, 53, 0.42);
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: fit-content;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: clamp(28px, 5.5vw, 68px);
+  font-weight: 850;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  text-align: center;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.45);
+
+  /* Letter-by-Letter Typewriter Animation */
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid #ffc62e;
+  animation: 
+    typewriter 6s steps(19, end) infinite,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0ch;
+  }
+  35%, 70% {
+    width: 19ch;
+  }
+  90%, 100% {
+    width: 0ch;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ffc62e;
+  }
+}
+
+.news-strip {
+  position: sticky;
+  bottom: 0;
+  z-index: 12;
+  overflow: hidden;
+  background: #082447;
+  color: #ffffff;
+}
+
+.news-track {
+  display: flex;
+  width: max-content;
+  min-width: 100%;
+  animation: ticker 16s linear infinite;
+  will-change: transform;
+}
+
+.news-strip:hover .news-track,
+.news-track:hover,
+.news-track a:hover {
+  animation-play-state: paused !important;
+}
+
+.news-track a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 48px;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.news-track a:hover {
+  text-decoration: underline;
+  color: #fbc02d;
+}
+
+.doc-icon {
+  color: #dcd8ef;
+  font-size: 15px;
+}
+
+.floating-circular-wrapper {
+  position: fixed;
+  right: 20px;
+  top: 44%;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.circular-popup {
+  position: absolute;
+  right: 62px;
+  top: -15px;
+  width: 285px;
+  background: #002147 !important;
+  background-image: linear-gradient(145deg, #002147 0%, #051833 100%) !important;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.40), 0 4px 12px rgba(0, 33, 71, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 4px solid #ffc62e;
+  padding: 14px 16px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(12px) scale(0.95);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.floating-circular-wrapper:hover .circular-popup,
+.circular-popup:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+}
+
+.circular-popup-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 10px;
+}
+
+.popup-icon {
+  font-size: 16px;
+}
+
+.popup-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.circular-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.circular-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #f1f5f9;
+  text-decoration: none;
+  line-height: 1.45;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.circular-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffc62e;
+}
+
+.item-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffc62e;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.view-all-circulars {
+  display: block;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: right;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffc62e;
+  text-decoration: none;
+}
+
+.view-all-circulars:hover {
+  text-decoration: underline;
+}
+
+.floating-circular {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-decoration: none;
+}
+
+.circular-btn {
+  position: relative;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffc62e;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.20);
+}
+
+.circular-label {
+  color: #002147;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  border-radius: 50%;
+  background: #ef3333;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.recognitions {
+  padding: 22px 4vw 20px;
+  background: #f3f6f8;
+  text-align: center;
+}
+
+.recognitions h2 {
+  margin: 0 0 16px;
+  color: #092f59;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.recognition-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.vision-mission-section {
+  padding: 20px 5vw 24px;
+  background: #f3f6f8;
+  text-align: center;
+}
+
+.vision-mission-section h2 {
+  margin: 0 0 18px;
+  color: #092f59;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.vision-mission-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.vision-mission-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 30px;
+  text-align: center;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.vision-mission-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.vision-mission-card h3 {
+  margin: 0 0 12px;
+  color: #0056b3;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.vision-mission-card p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ========================================================
+   AUTHENTIC ACADEMIC SECTIONS & HEADINGS
+   ======================================================== */
+.academic-section {
+  padding: 24px 5vw 28px;
+  background: #f3f6f8;
+}
+
+.academic-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.academic-header h2 {
+  margin: 0;
+  color: #082447;
+  font-size: 24px;
+  font-weight: 750;
+  letter-spacing: -0.2px;
+  font-family: 'Plus Jakarta Sans', 'Outfit', 'Inter', sans-serif;
+}
+
+.header-divider {
+  width: 40px;
+  height: 3px;
+  background: #0056b3;
+  border-radius: 2px;
+  margin: 8px auto 0;
+}
+
+/* ========================================================
+   1. PUBLICATIONS & IP - Clean Academic Scorecards
+   ======================================================== */
+.publications-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.pub-scorecard {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #dbe2ea;
+  box-shadow: 0 2px 12px rgba(8, 36, 71, 0.04);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pub-scorecard:hover {
+  border-color: #94a3b8;
+  box-shadow: 0 6px 20px rgba(8, 36, 71, 0.08);
+}
+
+.scorecard-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e9edf2;
+}
+
+.scorecard-logo {
+  height: 30px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+}
+
+.scorecard-logo.wos-logo {
+  height: 30px;
+  width: 30px;
+}
+
+.scorecard-logo.scopus-logo {
+  height: 26px;
+}
+
+.ip-indicator-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: #eff6ff;
+  border-radius: 8px;
+  border: 1px solid #bfdbfe;
+}
+
+.scorecard-title {
+  margin: 0;
+  color: #082447;
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.2px;
+}
+
+.scorecard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px 16px;
+}
+
+.scorecard-col {
+  text-align: center;
+  padding: 8px 12px;
+  border-right: 1px solid #e9edf2;
+}
+
+.scorecard-col.no-border {
+  border-right: none;
+}
+
+.scorecard-num {
+  display: block;
+  font-size: 30px;
+  font-weight: 800;
+  color: #082447;
+  line-height: 1.1;
+  font-feature-settings: 'tnum';
+  margin-bottom: 6px;
+}
+
+.scorecard-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  line-height: 1.4;
+}
+
+/* ========================================================
+   2. GRANT-IN-AID - Institutional Funding Overview Board
+   ======================================================== */
+.grant-showcase-panel {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  max-width: 1240px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #dbe2ea;
+  box-shadow: 0 4px 16px rgba(8, 36, 71, 0.05);
+  overflow: hidden;
+}
+
+/* The Authoritative Navy Funding Milestone Wing */
+.grant-hero-wing {
+  background: #082447;
+  color: #ffffff;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  border-right: 1px solid #0f3563;
+}
+
+.grant-hero-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffc62e;
+  border-bottom: 2px solid #ffc62e;
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+}
+
+.grant-hero-figure {
+  font-size: 38px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.grant-hero-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+}
+
+.grant-hero-desc {
+  margin: 0;
+  font-size: 12.5px;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+/* The Project Breakdown Wing */
+.grant-breakdown-wing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 32px 24px;
+  align-items: center;
+}
+
+.grant-breakdown-col {
+  padding: 12px 24px;
+  border-right: 1px solid #e9edf2;
+  text-align: left;
+}
+
+.grant-breakdown-col.no-border {
+  border-right: none;
+}
+
+.grant-project-num {
+  font-size: 34px;
+  font-weight: 800;
+  color: #082447;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.grant-project-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.grant-project-agencies {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+/* ========================================================
+   FUNDED RESEARCH SECTION
+   ======================================================== */
+.funded-research-section {
+  padding: 28px 5vw 36px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.funded-research-section h2 {
+  margin: 0 0 12px;
+  color: #092f59;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.funded-intro {
+  max-width: 920px;
+  margin: 0 auto 24px;
+  color: #4b5563;
+  font-size: 14.5px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.funded-card {
+  background: #eef4f9;
+  border-radius: 16px;
+  padding: 32px 36px;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.funded-card-content {
+  flex: 1;
+}
+
+.funded-card-content h3 {
+  margin: 0 0 12px;
+  color: #092f59;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.funded-card-content p {
+  margin: 0 0 20px;
+  color: #4b5563;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.funded-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f59e0b;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+}
+
+.funded-btn:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+}
+
+.funded-card-image {
+  flex: 0 0 260px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.funded-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px dashed #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.site-footer {
+  background: #082447;
+  color: #cbd5e1;
+  padding: 24px 5vw;
+  font-size: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-container {
+  max-width: 1340px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.footer-left a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-left a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-divider {
+  color: #475569;
+}
+
+.footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.footer-center h4 {
+  margin: 0 0 4px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-icon {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.social-icon:hover {
+  opacity: 0.75;
+}
+
+@media (max-width: 900px) {
+  .papers-grid,
+  .publications-grid,
+  .grants-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .funded-card {
+    flex-direction: column;
+    padding: 32px 24px;
+    gap: 28px;
+  }
+
+  .funded-card-image {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 160px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-center {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vision-mission-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.recognition-grid article {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.recognition-grid img {
+  display: block;
+  width: 48px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.recognition-grid h3 {
+  margin: 0;
+  max-width: 180px;
+  color: #111827;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1100px) {
+  .nav-bar {
+    align-items: flex-start;
+    padding: 12px 26px;
+    flex-direction: column;
+  }
+
+  .brand img {
+    max-width: 320px;
+  }
+
+  .main-nav {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    font-size: 16px;
+  }
+
+  .hero {
+    min-height: 560px;
+  }
+
+  .recognition-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .publications-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .grant-showcase-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .grant-hero-wing {
+    border-right: none;
+    border-bottom: 1px solid #0f3563;
+    padding: 28px 24px;
+  }
+
+  .grant-breakdown-wing {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .title-bar {
+    min-height: 44px;
+    padding: 0 16px;
+    font-size: 16px;
+  }
+
+  .nav-bar {
+    gap: 14px;
+    padding: 12px 16px;
+  }
+
+  .brand img {
+    max-width: 280px;
+  }
+
+  .main-nav {
+    gap: 6px 16px;
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: 470px;
+  }
+
+  .news-track a {
+    padding: 12px 48px;
+    font-size: 15px;
+  }
+
+  .floating-circular {
+    right: 16px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .recognitions {
+    padding: 42px 20px;
+  }
+
+  .recognition-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 18px;
+  }
+
+  .recognitions h2 {
+    font-size: 22px;
+  }
+
+  .recognition-grid img {
+    width: 62px;
+    height: 68px;
+  }
+
+  .recognition-grid h3 {
+    font-size: 13px;
+  }
+
+  .scorecard-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .scorecard-col {
+    border-right: none;
+    border-bottom: 1px solid #e9edf2;
+    padding-bottom: 14px;
+  }
+
+  .scorecard-col.no-border {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .grant-breakdown-wing {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .grant-breakdown-col {
+    border-right: none;
+    border-bottom: 1px solid #e9edf2;
+    padding: 0 0 16px 0;
+  }
+
+  .grant-breakdown-col.no-border {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .funded-card {
+    flex-direction: column;
+    padding: 24px 20px;
+  }
+}

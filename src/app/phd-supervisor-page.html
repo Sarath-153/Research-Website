@@ -1,0 +1,25 @@
+<section class="bg-gradient-to-r from-[#002147] to-[#0056b3] py-14 text-center text-white">
+  <p class="text-xs font-semibold tracking-widest uppercase opacity-80">Home &gt; Ph.D. &gt; Supervisor</p>
+  <h1 class="mt-2 text-3xl font-extrabold md:text-4xl">Ph.D. Supervisors</h1>
+</section>
+
+<main class="mx-auto max-w-6xl px-6 py-16">
+  <p class="mb-10 text-lg leading-relaxed text-slate-700">
+    Recognized Supervisors of Anna University working in various departments of K.S. Rangasamy College of Technology guide research scholars across diverse technical streams.
+  </p>
+
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+    <div *ngFor="let s of supervisors" class="rounded-xl border border-slate-200 bg-white p-6 shadow-md transition hover:-translate-y-1 hover:shadow-xl">
+      <h3 class="text-xl font-bold text-[#002147]">{{ s.name }}</h3>
+      <p class="mt-1 text-sm font-semibold text-[#0056b3]">Dept: {{ s.dept }}</p>
+      <div class="mt-4 flex flex-wrap items-center justify-between border-t border-slate-100 pt-3 text-xs text-slate-600">
+        <span>Supervisor Ref No: <strong class="text-slate-800">{{ s.code }}</strong></span>
+        <span>Area: <strong class="text-slate-800">{{ s.area }}</strong></span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="bg-[#082447] py-6 text-center text-sm text-white">
+  <p>© 2025 KSRCT CRFD. All Rights Reserved.</p>
+</footer>

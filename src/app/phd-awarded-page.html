@@ -1,0 +1,52 @@
+<!-- Sub-navigation for Scholars (Completed & Pursuing) -->
+<nav class="page-subnav flex items-center justify-center gap-3 px-6 py-3" aria-label="Scholars navigation">
+  <span class="mr-2 text-xs font-bold uppercase tracking-wider text-slate-500">Scholars:</span>
+  <a
+    routerLink="/phd_awarded.html"
+    class="rounded-full bg-[#082447] px-5 py-1.5 text-xs font-bold text-white shadow-xs transition-all"
+  >
+    Completed Scholars
+  </a>
+  <a
+    routerLink="/phd_pursuing.html"
+    class="rounded-full border border-slate-200 bg-white px-5 py-1.5 text-xs font-bold text-slate-600 transition-all hover:bg-slate-100 hover:text-slate-900"
+  >
+    Pursuing Scholars
+  </a>
+</nav>
+
+<section class="bg-gradient-to-r from-[#002147] to-[#0056b3] py-14 text-center text-white">
+  <p class="text-xs font-semibold tracking-widest uppercase opacity-80">Home &gt; Ph.D. &gt; Scholars &gt; Completed Scholars</p>
+  <h1 class="mt-2 text-3xl font-extrabold md:text-4xl">Completed Ph.D. Scholars</h1>
+</section>
+
+<main class="mx-auto max-w-6xl px-6 py-16">
+  <p class="mb-10 text-lg leading-relaxed text-slate-700">
+    List of scholars who have successfully defended their doctoral thesis and been awarded Ph.D. degrees under Anna University through KSRCT Research Centers.
+  </p>
+
+  <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr class="bg-[#002147] text-white uppercase text-xs tracking-wider">
+          <th class="p-4">Scholar Name</th>
+          <th class="p-4">Supervisor Name</th>
+          <th class="p-4">Thesis Title</th>
+          <th class="p-4">Year Awarded</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-slate-100 text-sm text-slate-700">
+        <tr *ngFor="let s of scholars" class="hover:bg-slate-50">
+          <td class="p-4 font-bold text-[#0056b3]">{{ s.name }}</td>
+          <td class="p-4 font-semibold text-slate-800">{{ s.supervisor }}</td>
+          <td class="p-4 italic text-slate-600">{{ s.title }}</td>
+          <td class="p-4 font-bold text-slate-800">{{ s.year }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer class="bg-[#082447] py-6 text-center text-sm text-white">
+  <p>© 2025 KSRCT CRFD. All Rights Reserved.</p>
+</footer>

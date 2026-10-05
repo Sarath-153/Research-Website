@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ===== TOP BAR ===== */
+.top-bar {
+    background: #002b5c;
+    color: #fff;
+    padding: 6px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.top-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.top-right a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.top-right input {
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 13px;
+}
+
+/* ===== MAIN HEADER ===== */
+.main-header {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-section img {
+    height: 60px;
+}
+
+.logo-text h2 {
+    margin: 0;
+    color: #003366;
+    font-size: 20px;
+}
+
+.logo-text span {
+    font-size: 13px;
+    color: #ff6600;
+}
+
+/* ===== NAVIGATION ===== */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 22px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 6px 0;
+}
+
+.main-nav ul li a:hover {
+    color: #003366;
+    border-bottom: 2px solid #003366;
+}
+
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+    <div class="top-left">
+        TNEA Code: <strong>2607</strong>
+    </div>
+
+    <div class="top-right">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <input type="text" placeholder="Search">
+    </div>
+</div>
+
+<!-- ===== MAIN HEADER ===== -->
+<header class="main-header">
+    <div class="logo-section">
+        <img src="ksrctlogo.png" alt="KSRCT Logo">
+        <div class="logo-text">
+            <h2>K.S. Rangasamy College of Technology</h2>
+            <span>Autonomous | Tiruchengode</span>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Academics</a></li>
+            <li><a href="#">Accreditation</a></li>
+            <li><a href="#">Life@KSRCT</a></li>
+            <li><a href="#">Admission</a></li>
+            <li><a href="#">Innovation</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Collaboration</a></li>
+            <li><a href="#">Alumni</a></li>
+        </ul>
+    </nav>
+</header>
+
+    
+</body>
+</html>

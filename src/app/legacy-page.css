@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.legacy-page {
+  min-height: 100vh;
+}
+
+.status-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, #f7fbff 0%, #eef3f8 100%);
+  padding: 24px;
+}
+
+.status-card {
+  width: min(100%, 640px);
+  padding: 32px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(29, 53, 87, 0.12);
+  color: #1f2937;
+  text-align: center;
+}
+
+.status-card h1 {
+  margin: 0 0 12px;
+}
+
+.status-card p {
+  margin: 0 0 16px;
+}
+
+.status-card a {
+  color: #0f4c81;
+  text-decoration: none;
+  font-weight: 600;
+}

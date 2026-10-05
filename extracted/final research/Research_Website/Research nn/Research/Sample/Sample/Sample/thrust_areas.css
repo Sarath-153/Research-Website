@@ -1,0 +1,359 @@
+:root {
+  --navy: #002147;
+  --blue: #0056b3;
+  --text-main: #333;
+  --light-gray: #f3f3f3;
+  --gold: #fbc02d;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #fff;
+  color: var(--text-main);
+}
+
+/* ===== Header ===== */
+header {
+  background: #fff;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+/* Logo Area */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+}
+
+.logo-area img {
+  height: 60px;
+}
+
+/* Nav */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-right: 20px;
+}
+
+.nav-item {
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  color: #232324;
+  cursor: pointer;
+  padding: 10px 0;
+  white-space: nowrap;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-item:hover {
+  color: var(--navy);
+}
+
+/* Home icon */
+.home-nav img {
+  width: 18px;
+  height: 18px;
+}
+.home-nav {
+  padding: 10px;
+}
+
+/* Dropdown */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 260px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border-top: 4px solid var(--navy);
+  padding: 10px 0;
+  list-style: none;
+  margin: 0;
+  z-index: 2001;
+}
+
+.dropdown.show {
+  display: block;
+}
+
+.dropdown li {
+  padding: 12px 20px;
+  font-size: 13px;
+  color: var(--text-main);
+  border-bottom: 1px solid #eee;
+  transition: 0.25s;
+  text-transform: capitalize;
+}
+
+.dropdown li:hover {
+  background: var(--light-gray);
+  color: var(--blue);
+  padding-left: 26px;
+}
+
+/* ===== Top Scrolling Notice Bar ===== */
+.scroll-bar {
+  width: 100%;
+  background: var(--blue);
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1500;
+}
+
+.scroll-content {
+  display: inline-block;
+  padding: 14px 0;
+  animation: scroll-left 25s linear infinite;
+}
+
+.scroll-content span {
+  margin-right: 60px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Banner */
+.banner {
+  background: linear-gradient(rgba(0,33,71,0.85), rgba(0,33,71,0.85));
+  color: #fff;
+  padding: 28px 10%;
+  text-align: center;
+}
+.banner p {
+  margin: 0 0 4px;
+  font-size: 13px;
+  letter-spacing: 1.4px;
+}
+.banner h2 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* Content */
+.content {
+  padding: 60px 5% 20px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--blue);
+  margin-bottom: 15px;
+}
+
+/* Dept Cards */
+.thrust-departments {
+  padding: 0 5% 80px;
+  background: #fff;
+}
+
+.dept-card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+  max-width: 1400px;
+  padding: 18px; 
+  margin: 0 auto;            /* ✅ centers grid */
+}
+
+.dept-card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 18px 18px 30px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.dept-card:hover {
+  transform: translateY(-6px);
+}
+
+.dept-image {
+  width: 100%;
+  height: 160px;
+  background: #eaeaea;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.dept-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--blue);
+  text-align: center;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Responsive cards */
+@media (max-width: 992px) {
+  .dept-card-container { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 576px) {
+  .dept-card-container { grid-template-columns: 1fr; }
+}
+
+/* ===== Modal (Content Only) ===== */
+.dept-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.dept-modal.show { display: block; }
+
+.dept-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.dept-modal-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(760px, 92vw);
+  max-height: 85vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.dept-modal-close {
+  position: sticky;
+  top: 10px;
+  float: right;
+  margin: 10px 12px 0 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  background: #f2f2f2;
+  z-index: 2;
+}
+
+.dept-modal-content {
+  padding: 22px 22px 18px;
+}
+
+.dept-modal-content h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--blue);
+}
+
+.dept-modal-about {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.dept-modal-section h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--navy);
+}
+
+.dept-modal-section ul {
+  margin: 0 0 18px;
+  padding-left: 18px;
+  line-height: 1.8;
+}
+
+.dept-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.dept-btn {
+  border: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 900;
+}
+
+.dept-btn.ghost {
+  background: #f2f2f2;
+  color: #222;
+}
+.dept-btn.ghost:hover { background: #e8e8e8; }
+
+/* Footer */
+.footer-bottom-bar {
+  background: #0b4da2;
+  color: #fff;
+  padding: 15px 8%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-bottom-bar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-icons a {
+  margin-left: 10px;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .footer-bottom-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+.dept-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* keeps proper image ratio */
+  border-radius: 10px;
+  overflow: hidden;
+  background: #eaeaea;
+}
+
+.dept-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills nicely without distortion */
+  display: block;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Advisory Committee | CRFD - KSRCT</title>
+<link rel="stylesheet" href="research_advisory_committee_css.css">
+</head>
+
+<body>
+
+<!-- Header -->
+    <header>
+        <div class="logo-area">
+            <img src="KSRCT_LOGO_2.png" alt="KSRCT Logo">
+        </div>
+       <nav class="main-nav">
+
+    <!-- HOME BUTTON -->
+    <a href="Sample.html" class="nav-item home-nav" title="Home">
+         <img class="img" src="home.png" alt="Home">
+    </a>
+
+    <!-- ABOUT -->
+
+    
+     <div class="nav-item" onclick="toggleMenu(event, 'eco-list')">
+        Research Ecosystem ▾
+        <ul class="dropdown" id="eco-list">
+            <li onclick="location.href='people.html'">People</li>
+            <li onclick="location.href='research_advisory_committee.html'">Research Advisory Committee</li>
+            <li onclick="location.href='thrust_areas.html'">Thrust Areas</li>
+            <li onclick="location.href='Facilities.html'">Facilities</li>
+        </ul>
+    </div>
+ 
+     <div class="nav-item" onclick="location.href='news_events.html'">Events</div>
+    
+    <div class="nav-item" onclick="toggleMenu(event, 'f-list')">
+       Research Promotions ▾
+        <ul class="dropdown" id="f-list">
+            <li onclick="location.href='fellowship_irf.html'">Institute Research Fellowship (IRF)</li>
+            <li onclick="location.href='fellowship_seedmoney.html'">Seed Money</li>
+            <li onclick="location.href='Imrg.html'">IMRG</li>
+        </ul>
+    </div>
+
+    <div class="nav-item" onclick="toggleMenu(event, 'phd-list')">
+  Ph.D ▾
+  <ul class="dropdown" id="phd-list">
+    <li class="accordion-item">
+      <span onclick="toggleSubMenu(event)">Guidelines </span>
+    <li onclick="window.open('phd_supervisor.html','_self')">Supervisor</li>
+    <li onclick="window.open('phd_centers.html','_self')">Research Centers</li>
+    <!-- Scholars (accordion style) -->
+    <li class="accordion-item">
+      <span onclick="toggleSubMenu(event)">Scholars </span>
+
+  </ul>
+</div>
+
+    <div class="nav-item" onclick="location.href='Consultancy.html'">
+        Consultancy
+    </div>
+    <div class="nav-item" onclick="location.href='downloads.html'">
+    Downloads
+</div>
+</nav>
+    </header>
+   <div class="scroll-bar">
+    <div class="scroll-content" id="newsScroll"></div>
+</div>
+
+<!-- Banner -->
+<section class="banner">
+    <p>Home > Research Advisory Committee</p>
+    <h2>Research Advisory Committee</h2>
+</section>
+
+<!-- Content -->
+<section class="content">
+    <div class="section-title">Research Advisory Committee</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Name of the Member</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>—</td><td>Member</td></tr>
+            <tr><td>2</td><td>—</td><td>Member</td></tr>
+            <tr><td>3</td><td>—</td><td>Member</td></tr>
+            <tr><td>4</td><td>—</td><td>Member</td></tr>
+            <tr><td>5</td><td>—</td><td>Member</td></tr>
+            <tr><td>6</td><td>—</td><td>Convener</td></tr>
+        </tbody>
+    </table>
+</section>
+
+
+<!-- Bottom Bar -->
+<footer class="footer-bottom-bar">
+    <div class="footer-bottom-left">
+        Page Updated: Dec 22nd, 2025 |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="footer-bottom-right">
+        © 2025 KSRCT CRFD. All Rights Reserved.
+        <span class="social-icons">
+            <a href="#">f</a>
+            <a href="#">X</a>
+            <a href="#">in</a>
+            <a href="#">▶</a>
+        </span>
+    </div>
+</footer>
+
+<script src="research_advisory_committee_js.js"></script>
+
+</body>
+</html>

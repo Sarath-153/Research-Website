@@ -1,0 +1,57 @@
+<header class="site-header" [class.nav-closed]="isNavClosed" (mouseleave)="resetNav()">
+  <div class="title-bar">CENTER FOR RESEARCH AND DEVELOPMENT (CFRD)</div>
+
+  <div class="nav-bar">
+    <a routerLink="/" class="brand" (click)="closeDropdowns()" aria-label="KSRCT Research Home">
+      <img src="/legacy/shared/KSRCT_LOGO_2.png" alt="K.S.Rangasamy College of Technology" />
+    </a>
+
+    <nav class="main-nav" aria-label="Research navigation">
+      <a routerLink="/" class="home-link" (click)="closeDropdowns()" aria-label="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#0f172a">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+      </a>
+
+      <div class="nav-item" (mouseenter)="resetNav()">
+        Research Ecosystem <span class="nav-caret" aria-hidden="true"></span>
+        <div class="dropdown">
+          <a routerLink="/people.html" (click)="closeDropdowns()">People</a>
+          <a routerLink="/research_advisory_committee.html" (click)="closeDropdowns()">Research Advisory Committee</a>
+          <a routerLink="/thrust_areas.html" (click)="closeDropdowns()">Thrust Areas</a>
+        </div>
+      </div>
+
+      <a routerLink="/doctoral-research" (click)="closeDropdowns()">Doctoral Research</a>
+
+      <div class="nav-item" (mouseenter)="resetNav()">
+        Research Promotions <span class="nav-caret" aria-hidden="true"></span>
+        <div class="dropdown">
+          <a routerLink="/fellowship_irf.html" (click)="closeDropdowns()">Institute Research Fellowship (IRF)</a>
+          <a routerLink="/fellowship_seedmoney.html" (click)="closeDropdowns()">Seed Money</a>
+          <a routerLink="/Imrg.html" (click)="closeDropdowns()">IMRG</a>
+        </div>
+      </div>
+
+      <div class="nav-item" (mouseenter)="resetNav()">
+        Ph.D <span class="nav-caret" aria-hidden="true"></span>
+        <div class="dropdown">
+          <a routerLink="/phd_regulations.html" (click)="closeDropdowns()">Guidelines</a>
+          <a routerLink="/phd_supervisor.html" (click)="closeDropdowns()">Supervisor</a>
+          <a routerLink="/Research.html" (click)="closeDropdowns()">Research Centers</a>
+          <a routerLink="/phd_awarded.html" (click)="closeDropdowns()">Scholars</a>
+        </div>
+      </div>
+
+      <a routerLink="/Facilities.html" (click)="closeDropdowns()">Facilities</a>
+      <a routerLink="/news_events.html" (click)="closeDropdowns()">Events</a>
+      <a routerLink="/downloads.html" class="download-link" (click)="closeDropdowns()" aria-label="Downloads" title="Downloads">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</header>

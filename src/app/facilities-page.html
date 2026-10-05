@@ -1,0 +1,103 @@
+
+<div class="facilities-page min-h-screen bg-white text-[#333]">
+  <main class="mx-auto w-full max-w-[1600px] px-4 pb-16 pt-10 sm:px-6 lg:px-8">
+    <h2 class="mb-3 text-[28px] font-extrabold text-[#082447]">Our Research Facilities</h2>
+    <p class="mb-8 text-[16px] leading-7 text-[#444]">
+      CFRD houses state-of-the-art laboratories, computational resources, and research infrastructure to support scholars and faculty across all disciplines.
+    </p>
+
+    <div class="filter-row">
+      <button type="button" [class.active]="activeDepartment === 'all'" (click)="setDepartment('all')">All Departments</button>
+      <button
+        *ngFor="let department of departments"
+        type="button"
+        [class.active]="activeDepartment === department.key"
+        (click)="setDepartment(department.key)"
+      >
+        {{ department.name }}
+      </button>
+    </div>
+
+    <section *ngFor="let department of visibleDepartments" class="department-block">
+      <div class="department-heading">
+        <h3>{{ department.name }}</h3>
+        <span>{{ department.count }} Equipment</span>
+      </div>
+
+      <div class="equipment-grid">
+        <article *ngFor="let equipment of equipmentFor(department)" class="equipment-card">
+          <button type="button" class="equipment-image-wrap" (click)="openEquipment(equipment)" [attr.aria-label]="'View details for ' + equipment.title">
+            <img [src]="equipment.image" [alt]="equipment.title" loading="lazy" />
+            <span>{{ equipment.department }}</span>
+          </button>
+          <div class="equipment-info">
+            <h4>{{ equipment.title }}</h4>
+            <p *ngIf="equipment.make || equipment.model">
+              <span *ngIf="equipment.make">{{ equipment.make }}</span>
+              <span *ngIf="equipment.make && equipment.model"> / </span>
+              <span *ngIf="equipment.model">{{ equipment.model }}</span>
+            </p>
+            <button class="details-button" type="button" (click)="openEquipment(equipment)">View Details</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="flex flex-wrap items-center justify-between gap-3 bg-[#082447] px-[8%] py-4 text-[14px] text-white">
+    <div>
+      Page Updated: {{ pageUpdated }} |
+      <a class="mx-1 text-white no-underline" href="#">Terms of Use</a> |
+      <a class="mx-1 text-white no-underline" href="#">Privacy Policy</a>
+    </div>
+    <div>&copy; 2025 KSRCT CRFD. All Rights Reserved.</div>
+  </footer>
+</div>
+
+<div *ngIf="selectedEquipment as equipment" class="facility-modal" (click)="closeEquipment()">
+  <section class="facility-dialog" role="dialog" aria-modal="true" [attr.aria-label]="equipment.title" (click)="$event.stopPropagation()">
+    <header class="facility-dialog-header">
+      <h2>{{ equipment.title }}</h2>
+      <button type="button" class="facility-dialog-close" aria-label="Close details" (click)="closeEquipment()">&times;</button>
+    </header>
+
+    <div class="facility-dialog-body">
+      <div class="facility-copy">
+        <ng-container *ngIf="equipment.specifications?.length; else detailsUnavailable">
+          <p><strong>Make:</strong> {{ equipment.make }}</p>
+          <p><strong>Model:</strong> {{ equipment.model }}</p>
+          <p><strong>Department:</strong> {{ equipment.department }}</p>
+          <h3>Specifications</h3>
+          <ul>
+            <li *ngFor="let specification of equipment.specifications">{{ specification }}</li>
+          </ul>
+        </ng-container>
+
+        <ng-template #detailsUnavailable>
+          <p><strong>Department:</strong> {{ equipment.department }}</p>
+          <p>Detailed information is being prepared from the source sheet.</p>
+        </ng-template>
+
+        <!-- Contact Section -->
+        <section class="facility-contact-section">
+          <h3>Contact</h3>
+          <div class="facility-contact-card">
+            <p><strong>Coordinator:</strong> Center for Research and Development (CFRD)</p>
+            <p><strong>Department:</strong> {{ equipment.department }}</p>
+            <p><strong>Email:</strong> <a href="mailto:cfrd@ksrct.ac.in">cfrd@ksrct.ac.in</a> / <a href="mailto:infodesk@ksrct.ac.in">infodesk@ksrct.ac.in</a></p>
+            <p><strong>Phone:</strong> +91 4288 274741 / +91 98765 43210</p>
+            <p><strong>Location:</strong> Central Research Facility, KSRCT Campus</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="facility-preview">
+        <img [src]="equipment.image" [alt]="equipment.title" />
+        <div *ngIf="equipment.purpose" class="purpose">
+          <span>Purpose</span>
+          <strong>{{ equipment.purpose }}</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,20 @@
+[1m[33mSourcemap for "A:/Research-angular/my-app/.angular/vite-root/my-app/polyfills.server.mjs" points to missing source files[39m[22m
+[1m[31mERROR: Bad Request ("http://localhost:4200/Sample.html").
+URL with hostname "localhost" is not allowed.
+
+For more information, see https://angular.dev/best-practices/security#preventing-server-side-request-forgery-ssrf[39m[22m
+
+<--- Last few GCs --->
+
+[24984:000002106F31B000]  4265202 ms: Mark-Compact (reduce) 2043.8 (2049.6) -> 2043.2 (2048.2) MB, pooled: 0 MB, 295.83 / 0.00 ms  (+ 76.9 ms in 18 steps since start of marking, biggest step 6.0 ms, walltime since start of marking 396 ms) (average mu = 0.[24984:000002106F31B000]  4265688 ms: Mark-Compact (reduce) 2046.0 (2050.0) -> 2046.0 (2051.0) MB, pooled: 0 MB, 366.00 / 0.00 ms  (+ 25.4 ms in 5 steps since start of marking, biggest step 5.1 ms, walltime since start of marking 399 ms) (average mu = 0.2
+FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 00007FF7DC7DAE1F node::OnFatalError+1343
+ 2: 00007FF7DD4237B7 v8::Function::NewInstance+423
+ 3: 00007FF7DD223E77 v8::base::AddressSpaceReservation::AddressSpaceReservation+322071
+ 4: 00007FF7DD221B16 v8::base::AddressSpaceReservation::AddressSpaceReservation+313014
+ 5: 00007FF7DD23C1CA X509_STORE_set_cleanup+5098
+ 6: 00007FF7DD248666 uv_timer_set_repeat+20694
+ 7: 00007FF7DCE1B7DB v8::String::Utf8Value::~Utf8Value+143771
+ 8: 0000021027E7733A 

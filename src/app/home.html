@@ -1,0 +1,226 @@
+<main>
+  <section class="hero">
+    <div class="hero-shade"></div>
+    <h1>Research Excellence</h1>
+  </section>
+
+  <section class="news-strip" aria-label="Latest research news">
+    <div class="news-track">
+      <a *ngFor="let item of newsItems" [routerLink]="item.link">
+        <span class="doc-icon" aria-hidden="true">▦</span>{{ item.text }}
+      </a>
+      <a *ngFor="let item of newsItems" [routerLink]="item.link" aria-hidden="true">
+        <span class="doc-icon" aria-hidden="true">▦</span>{{ item.text }}
+      </a>
+    </div>
+  </section>
+
+  <div class="floating-circular-wrapper">
+    <div class="circular-popup" style="background: #002147 !important;" role="tooltip" aria-label="Latest Circular Updates">
+      <div class="circular-popup-header">
+        <span class="popup-icon">🔔</span>
+        <span class="popup-title">Latest Circulars</span>
+      </div>
+      <ul class="circular-list">
+        <li>
+          <a routerLink="/phd-regulations" class="circular-item">
+            <span class="item-dot"></span>
+            <span>Ph.D. Regulations & Guidelines 2025</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/fellowship-seedmoney" class="circular-item">
+            <span class="item-dot"></span>
+            <span>Seed Money Scheme Proposal Call</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/fellowship-irf" class="circular-item">
+            <span class="item-dot"></span>
+            <span>Institute Research Fellowship (IRF) Application</span>
+          </a>
+        </li>
+      </ul>
+      <a routerLink="/downloads" class="view-all-circulars">View All Circulars &rarr;</a>
+    </div>
+
+    <a routerLink="/downloads" class="floating-circular" aria-label="Circulars">
+      <div class="circular-btn">
+        <svg class="paper-svg" viewBox="0 0 24 24" width="20" height="20" fill="#ffffff" stroke="none">
+          <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+        </svg>
+        <span class="badge">3</span>
+      </div>
+      <span class="circular-label">Circular</span>
+    </a>
+  </div>
+
+  <section class="recognitions">
+    <h2>Accreditation & Recognitions</h2>
+    <div class="recognition-grid">
+      <article *ngFor="let item of recognitions">
+        <img [src]="item.image" [alt]="item.title" />
+        <h3>{{ item.title }}</h3>
+      </article>
+    </div>
+  </section>
+
+  <section class="vision-mission-section">
+    <h2>Vision & Mission</h2>
+    <div class="vision-mission-grid">
+      <div class="vision-mission-card">
+        <h3>Our Vision</h3>
+        <p>To become a leading hub for multidisciplinary research driving innovation and societal transformation.</p>
+      </div>
+      <div class="vision-mission-card">
+        <h3>Our Mission</h3>
+        <p>Promote research excellence, support scholars and faculty, and foster collaboration with academia and industry.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="academic-section publications-section">
+    <div class="academic-header">
+      <h2>Publications</h2>
+      <div class="header-divider"></div>
+    </div>
+
+    <div class="publications-row">
+      <div *ngFor="let pub of publications" class="pub-scorecard">
+        <div class="scorecard-top">
+          <img *ngIf="pub.logo" [src]="pub.logo" [alt]="pub.category + ' Logo'" class="scorecard-logo" [class.wos-logo]="pub.category === 'Web of Science'" [class.scopus-logo]="pub.category === 'Scopus'" />
+          <h3 class="scorecard-title">{{ pub.category }}</h3>
+        </div>
+
+        <div class="scorecard-stats">
+          <div *ngFor="let stat of pub.stats; let last = last" class="scorecard-col" [class.no-border]="last">
+            <span class="scorecard-num">{{ stat.count }}</span>
+            <span class="scorecard-label">{{ stat.label }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="academic-section grants-section">
+    <div class="academic-header">
+      <h2>Grant-in-Aid</h2>
+      <div class="header-divider"></div>
+    </div>
+
+    <div class="grant-showcase-panel">
+      <!-- Main Funding Milestone Wing -->
+      <div class="grant-hero-wing">
+        <div class="grant-hero-badge">CFRD Sponsored Research</div>
+        <div class="grant-hero-figure">{{ grantData.totalAmount }}</div>
+        <div class="grant-hero-title">{{ grantData.totalLabel }}</div>
+        <p class="grant-hero-desc">{{ grantData.totalSub }}</p>
+      </div>
+
+      <!-- Project Categorization Wing -->
+      <div class="grant-breakdown-wing">
+        <div *ngFor="let item of grantData.breakdown; let last = last" class="grant-breakdown-col" [class.no-border]="last">
+          <div class="grant-project-num">{{ item.count }}</div>
+          <div class="grant-project-title">{{ item.title }}</div>
+          <div class="grant-project-agencies">{{ item.agencies }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="academic-section ip-section">
+    <div class="academic-header">
+      <h2>Patents & Copyrights</h2>
+      <div class="header-divider"></div>
+    </div>
+
+    <div class="publications-row">
+      <div *ngFor="let ip of ipStats" class="pub-scorecard">
+        <div class="scorecard-top">
+          <div class="ip-indicator-icon">
+            <svg *ngIf="ip.category === 'Patents'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0056b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <svg *ngIf="ip.category === 'Copyrights'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0056b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M14.83 14.83a4 4 0 1 1 0-5.66"/>
+            </svg>
+          </div>
+          <h3 class="scorecard-title">{{ ip.category }}</h3>
+        </div>
+
+        <div class="scorecard-stats">
+          <div *ngFor="let stat of ip.stats; let last = last" class="scorecard-col" [class.no-border]="last">
+            <span class="scorecard-num">{{ stat.count }}</span>
+            <span class="scorecard-label">{{ stat.label }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="funded-research-section">
+    <h2>Funded Research</h2>
+    <p class="funded-intro">
+      K.S.Rangasamy College of Technology (KSRCT) facilitates research pursuits of its faculty members, research scholars, and students at scale with a strong emphasis on impactful outcomes. The institution maintains a dedicated focus on ensuring adequate funding support so that research projects and studies progress efficiently and satisfactorily.
+    </p>
+
+    <div class="funded-card">
+      <div class="funded-card-content">
+        <h3>Sponsored Research Projects at KSRCT – 2007 Onwards</h3>
+        <p>
+          K.S.Rangasamy College of Technology (KSRCT) invests in creating a research-oriented ambience that enables researchers to engage in high-quality research activities. The multidisciplinary campus and the institution's growing emphasis on interdisciplinary research encourage scholars and students from diverse domains to collaborate and develop innovative and impactful solutions.
+        </p>
+        <a routerLink="/irf.html" class="funded-btn">
+          Sponsored Research Projects Sanctioned &rarr;
+        </a>
+      </div>
+      <div class="funded-card-image">
+        <div class="funded-img-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0056b3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            <polyline points="12 11 12 17 15 14"></polyline>
+          </svg>
+          <span>Research Image</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <span>Page Updated: Dec 22nd, 2025</span>
+      <span class="footer-divider">|</span>
+      <a href="#">Terms of Use</a>
+      <span class="footer-divider">|</span>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="footer-center">
+      <h4>Contact Details</h4>
+      <div class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+91 98765 43210</span>
+      </div>
+      <div class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+91 98765 43211</span>
+      </div>
+      <div class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>infodesk@ksrct.ac.in</span>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <span>&copy; 2025 KSRCT CRFD. All Rights Reserved.</span>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook" class="social-icon">f</a>
+        <a href="#" aria-label="X" class="social-icon">X</a>
+        <a href="#" aria-label="LinkedIn" class="social-icon">in</a>
+      </div>
+    </div>
+  </div>
+</footer>

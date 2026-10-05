@@ -1,0 +1,36 @@
+<div class="thrust-page min-h-screen bg-white text-[#333]">
+  <main class="px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+    <h2 class="mx-auto mb-8 w-full max-w-[1720px] text-[28px] font-extrabold text-[#0056b3]">Thrust Areas</h2>
+
+    <section class="mx-auto grid w-full max-w-[1720px] grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4" aria-label="Department thrust areas">
+      <article *ngFor="let department of departments" class="dept-card">
+        <img class="dept-image" [src]="department.image" [alt]="department.name" loading="lazy" />
+        <h3>{{ department.name }}</h3>
+
+        <div class="dept-divider"></div>
+        <h4>Thrust Areas</h4>
+
+        <ul>
+          <li *ngFor="let area of department.areas">{{ area }}</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="flex flex-wrap items-center justify-between gap-3 bg-[#082447] px-[8%] py-4 text-[14px] text-white">
+    <div>
+      Page Updated: {{ pageUpdated }} |
+      <a class="mx-1 text-white no-underline" href="#">Terms of Use</a> |
+      <a class="mx-1 text-white no-underline" href="#">Privacy Policy</a>
+    </div>
+
+    <div>
+      &copy; 2025 KSRCT CRFD. All Rights Reserved.
+      <span class="ml-3 inline-flex gap-5 font-extrabold">
+        <a class="text-white no-underline" href="https://www.facebook.com/ksrct1994" target="_blank" rel="noopener">f</a>
+        <a class="text-white no-underline" href="https://twitter.com/ksrct" target="_blank" rel="noopener">X</a>
+        <a class="text-white no-underline" href="https://www.linkedin.com/school/k-s-rangasamy-college-of-technology/" target="_blank" rel="noopener">in</a>
+      </span>
+    </div>
+  </footer>
+</div>

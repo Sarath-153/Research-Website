@@ -1,0 +1,199 @@
+<!-- Sub-navigation for Guidelines (Regulations & Courseworks) -->
+<nav class="page-subnav flex items-center justify-center gap-3 px-6 py-3" aria-label="Guidelines navigation">
+  <span class="mr-2 text-xs font-bold uppercase tracking-wider text-slate-500">Guidelines:</span>
+  <a
+    routerLink="/phd_regulations.html"
+    class="rounded-full bg-[#082447] px-5 py-1.5 text-xs font-bold text-white shadow-xs transition-all"
+  >
+    Regulations
+  </a>
+  <a
+    routerLink="/phd_coursework.html"
+    class="rounded-full border border-slate-200 bg-white px-5 py-1.5 text-xs font-bold text-slate-600 transition-all hover:bg-slate-100 hover:text-slate-900"
+  >
+    Courseworks
+  </a>
+</nav>
+
+<!-- Hero Section with Premium Styling -->
+<section class="relative overflow-hidden bg-gradient-to-br from-[#00152e] via-[#002147] to-[#004080] py-16 text-white">
+  <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"></div>
+  <div class="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-indigo-500/10 blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-6xl px-6 text-center">
+    <div class="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-300">
+      <span>Governed by Anna University</span>
+    </div>
+
+    <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
+      Ph.D. Regulations & Guidelines
+    </h1>
+    
+    <p class="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
+      Official regulatory framework, administrative statutes, admission norms, coursework mandates, and thesis submission guidelines for doctoral research scholars at KSRCT.
+    </p>
+
+    <!-- Quick Stats Bar -->
+    <div class="mt-10 grid grid-cols-2 gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md sm:grid-cols-4 md:gap-6">
+      <div class="text-center">
+        <p class="text-3xl font-extrabold text-blue-400">2020</p>
+        <p class="mt-1 text-xs font-medium text-slate-300 uppercase tracking-wider">Latest Statutes</p>
+      </div>
+      <div class="text-center">
+        <p class="text-3xl font-extrabold text-blue-400">8 - 16</p>
+        <p class="mt-1 text-xs font-medium text-slate-300 uppercase tracking-wider">Coursework Credits</p>
+      </div>
+      <div class="text-center">
+        <p class="text-3xl font-extrabold text-blue-400">&lt; 10%</p>
+        <p class="mt-1 text-xs font-medium text-slate-300 uppercase tracking-wider">Similarity Index</p>
+      </div>
+      <div class="text-center">
+        <p class="text-3xl font-extrabold text-blue-400">2+</p>
+        <p class="mt-1 text-xs font-medium text-slate-300 uppercase tracking-wider">SCI / Scopus Papers</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Highlights Section -->
+<section class="bg-slate-50 py-16">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="text-center">
+      <h2 class="text-2xl font-bold tracking-tight text-[#002147] md:text-3xl">Core Regulatory Requirements</h2>
+      <p class="mt-2 text-sm text-slate-600">Essential rules and milestones governing every doctoral degree program</p>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div *ngFor="let item of highlights" class="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#0056b3] hover:shadow-xl">
+        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-2xl group-hover:bg-[#0056b3] group-hover:text-white transition-colors duration-300">
+          {{ item.icon }}
+        </div>
+        <h3 class="mt-4 text-lg font-bold text-slate-900 group-hover:text-[#0056b3] transition-colors duration-200">{{ item.title }}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ item.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Documents & Regulations Section -->
+<section class="py-16 bg-white">
+  <div class="mx-auto max-w-6xl px-6">
+
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between border-b border-slate-200 pb-6">
+      <div>
+        <h2 class="text-2xl font-bold text-[#002147] md:text-3xl">Official Documents & Downloads</h2>
+        <p class="mt-1 text-sm text-slate-500">Access verified regulatory gazettes, guidelines, and amendment notices</p>
+      </div>
+
+      <!-- Search and Filter Controls -->
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <!-- Category Filter Buttons -->
+        <div class="inline-flex rounded-xl bg-slate-100 p-1">
+          <button (click)="selectedCategory = 'all'" [class.bg-white]="selectedCategory === 'all'" [class.shadow-sm]="selectedCategory === 'all'" [class.text-[#0056b3]]="selectedCategory === 'all'" class="rounded-lg px-3 py-1.5 text-xs font-bold text-slate-600 transition-all">All</button>
+          <button (click)="selectedCategory = 'official'" [class.bg-white]="selectedCategory === 'official'" [class.shadow-sm]="selectedCategory === 'official'" [class.text-[#0056b3]]="selectedCategory === 'official'" class="rounded-lg px-3 py-1.5 text-xs font-bold text-slate-600 transition-all">Official</button>
+          <button (click)="selectedCategory = 'amendment'" [class.bg-white]="selectedCategory === 'amendment'" [class.shadow-sm]="selectedCategory === 'amendment'" [class.text-[#0056b3]]="selectedCategory === 'amendment'" class="rounded-lg px-3 py-1.5 text-xs font-bold text-slate-600 transition-all">Amendments</button>
+          <button (click)="selectedCategory = 'circular'" [class.bg-white]="selectedCategory === 'circular'" [class.shadow-sm]="selectedCategory === 'circular'" [class.text-[#0056b3]]="selectedCategory === 'circular'" class="rounded-lg px-3 py-1.5 text-xs font-bold text-slate-600 transition-all">Standards</button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="relative min-w-[220px]">
+          <input type="text" [(ngModel)]="searchQuery" placeholder="Search regulations..." class="w-full rounded-xl border border-slate-300 bg-slate-50 py-2 pl-9 pr-4 text-xs font-medium text-slate-800 focus:border-[#0056b3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-2.5 h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Regulations List Grid -->
+    <div class="mt-8 space-y-4">
+      <div *ngFor="let item of filteredRegulations" class="group relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#0056b3] hover:shadow-md md:flex-row md:items-center">
+        <div class="flex items-start gap-4">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100 text-[#0056b3] font-bold text-sm">
+            PDF
+          </div>
+          <div>
+            <div class="flex items-center gap-3 flex-wrap">
+              <h3 class="text-base font-bold text-slate-900 group-hover:text-[#0056b3] transition-colors">
+                {{ item.title }}
+              </h3>
+              <span class="rounded-full bg-blue-50 px-2.5 py-0.5 text-[11px] font-bold text-[#0056b3] border border-blue-200">
+                {{ item.badgeText }}
+              </span>
+              <span class="text-xs font-semibold text-slate-400">
+                • {{ item.year }}
+              </span>
+            </div>
+            <p class="mt-1.5 text-sm text-slate-600 max-w-3xl leading-relaxed">
+              {{ item.description }}
+            </p>
+            <div class="mt-2 flex items-center gap-4 text-xs font-medium text-slate-400">
+              <span>File Size: {{ item.fileSize }}</span>
+              <span>Source: Centre for Research, Anna University</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 flex items-center gap-3 shrink-0 md:mt-0">
+          <a [href]="item.link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-[#0056b3] px-5 py-2.5 text-xs font-bold text-white shadow-sm transition-all duration-200 hover:bg-[#002147] hover:shadow-md active:scale-95">
+            <span>Download PDF</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div *ngIf="filteredRegulations.length === 0" class="rounded-2xl border border-dashed border-slate-300 bg-slate-50 py-12 text-center">
+        <p class="text-sm font-semibold text-slate-500">No regulations found matching your search term.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive FAQ Accordion Section -->
+<section class="bg-slate-50 py-16">
+  <div class="mx-auto max-w-4xl px-6">
+    <div class="text-center">
+      <h2 class="text-2xl font-bold tracking-tight text-[#002147] md:text-3xl">Frequently Asked Questions</h2>
+      <p class="mt-2 text-sm text-slate-600">Clarifications regarding regulations, coursework, and thesis submission</p>
+    </div>
+
+    <div class="mt-10 space-y-4">
+      <div *ngFor="let faq of faqs; let i = index" class="overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all">
+        <button (click)="toggleFaq(i)" class="flex w-full items-center justify-between p-5 text-left font-bold text-slate-800 hover:text-[#0056b3] focus:outline-none">
+          <span class="text-base">{{ faq.question }}</span>
+          <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 font-bold text-lg">
+            {{ faq.isOpen ? '−' : '+' }}
+          </span>
+        </button>
+        <div *ngIf="faq.isOpen" class="border-t border-slate-100 bg-blue-50/30 p-5 text-sm leading-relaxed text-slate-700">
+          {{ faq.answer }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Direct Portal Assistance Banner -->
+<section class="bg-gradient-to-r from-[#002147] to-[#0056b3] py-12 text-white">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 text-center md:flex-row md:text-left">
+    <div>
+      <h3 class="text-2xl font-extrabold">Need Official Portal Assistance?</h3>
+      <p class="mt-1 text-sm text-blue-100">Visit Anna University Centre for Research official portal or contact KSRCT CFRD desk.</p>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-3">
+      <a href="https://cfr.annauniv.edu" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-white px-5 py-3 text-xs font-bold text-[#002147] shadow-md transition hover:bg-blue-50">
+        Anna University CFR Portal ↗
+      </a>
+      <a routerLink="/people" class="rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-xs font-bold text-white backdrop-blur-sm transition hover:bg-white/20">
+        Contact CFRD Team
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-[#082447] py-6 text-center text-sm text-white">
+  <p>© 2025 KSRCT CFRD. All Rights Reserved.</p>
+</footer>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People | CRFD - KSRCT</title>
+<link rel="stylesheet" href="people_css.css">
+</head>
+
+<body>
+
+<!-- Header -->
+
+    <header>
+        <div class="logo-area">
+            <img src="KSRCT_LOGO_2.png" alt="KSRCT Logo">
+        </div>
+       <nav class="main-nav">
+
+    <!-- HOME BUTTON -->
+    <a href="Sample.html" class="nav-item home-nav" title="Home">
+         <img class="img" src="home.png" alt="Home">
+    </a>
+
+    <!-- ABOUT -->
+
+    
+     <div class="nav-item" onclick="toggleMenu(event, 'eco-list')">
+        Research Ecosystem ▾
+        <ul class="dropdown" id="eco-list">
+            <li onclick="location.href='people.html'">People</li>
+            <li onclick="location.href='research_advisory_committee.html'">Research Advisory Committee</li>
+            <li onclick="location.href='thrust_areas.html'">Thrust Areas</li>
+            <li onclick="location.href='Facilities.html'">Facilities</li>
+        </ul>
+    </div>
+ 
+     <div class="nav-item" onclick="location.href='news_events.html'">Events</div>
+    
+    <div class="nav-item" onclick="toggleMenu(event, 'f-list')">
+       Research Promotions ▾
+        <ul class="dropdown" id="f-list">
+            <li onclick="location.href='fellowship_irf.html'">Institute Research Fellowship (IRF)</li>
+            <li onclick="location.href='fellowship_seedmoney.html'">Seed Money</li>
+            <li onclick="location.href='Imrg.html'">IMRG</li>
+        </ul>
+    </div>
+
+    <div class="nav-item" onclick="toggleMenu(event, 'phd-list')">
+  Ph.D ▾
+  <ul class="dropdown" id="phd-list">
+    <li class="accordion-item">
+      <span onclick="toggleSubMenu(event)">Guidelines </span>
+    <li onclick="window.open('phd_supervisor.html','_self')">Supervisor</li>
+    <li onclick="window.open('phd_centers.html','_self')">Research Centers</li>
+    <!-- Scholars (accordion style) -->
+    <li class="accordion-item">
+      <span onclick="toggleSubMenu(event)">Scholars </span>
+
+  </ul>
+</div>
+
+    <div class="nav-item" onclick="location.href='Consultancy.html'">
+        Consultancy
+    </div>
+    <div class="nav-item" onclick="location.href='downloads.html'">
+    Downloads
+</div>
+</nav>
+    </header>
+   <div class="scroll-bar">
+    <div class="scroll-content" id="newsScroll"></div>
+</div>
+
+<!-- Banner -->
+<section class="banner">
+    <p>Home > About > People</p>
+    <h2>People</h2>
+</section>
+
+<!-- Content -->
+<section class="content">
+    <div class="section-title">People</div>
+    
+</section>
+<!-- ===== PEOPLE CARDS SECTION ===== -->
+<section class="people-cards-section">
+
+    <!-- Card 1 -->
+
+    <div class="people-cards">
+<div class="person-card"
+     onclick="openProfile(this)"
+     data-name="Dr.M.Kathirselvam"
+     data-designation="Associate Professor"
+     data-dept="Department of Mechanical Engineering"
+     data-email="📧:mkathirselvam@ksrct.ac.in"
+     data-photo="../Faculty/Kathirselvam Sir.png"
+     data-research="Nonlinear Differential Equations, Fractional Differential Equations, Epidemiological Modeling, Infectious Disease, Asymptotic Methods, Numerical Analysis, Proposed Iterative Techniques, Artificial Neural Network & Machine Learning."
+     data-scholar="https://scholar.google.com/citations?user=o44SYXYAAAAJ&hl=en"
+     data-researchgate="https://www.researchgate.net/profile/Kathirselvam-Muthusamy"
+     data-scopus="https://www.scopus.com/authid/detail.uri?authorId=56392988900"
+     data-wos="https://www.webofscience.com/wos/author/record/ABG-4891-2020"
+     data-orcid="https://orcid.org/0000-0002-4142-3937"
+>
+  <div class="profile-pic">
+   <img src="../Faculty/Kathirselvam Sir.png" alt="">
+  </div>
+  <h3 class="name">Dr.M.Kathirselvam</h3>
+  <p class="role">Mechanical Engineering</p>
+</div>
+ 
+<!-- Card 2 -->
+ <div class="person-card"
+     onclick="openProfile(this)"
+     data-name="Dr. Karthik A"
+     data-designation="Associate Professor"
+     data-dept="Department of Nano Science and Technology"
+     data-email="📧:karthik@ksrct.ac.in"
+     data-photo="../Faculty/Karthik Sir.png"
+     data-research="2D Materials and Nanocomposites
+High-Temperature Corrosion
+Green Catalysis
+Wastewater Treatment
+Supercapacitors and Batteries
+CO₂ Conversion and Adsorption "
+     data-scholar=": https://scholar.google.com/citations?user=9UPZ6zwAAAAJ&hl=en"
+     data-researchgate=": https://www.researchgate.net/profile/Karthik-Arumugam-4?ev=hdr_xprf"
+     data-scopus="https://www.scopus.com/authid/detail.uri?authorId=56912053300"
+     data-wos="https://www.webofscience.com/wos/author/record/AAU-8724-2020"
+     data-orcid="https://orcid.org/0000-0002-8835-0528"
+>
+  <div class="profile-pic">
+    <img src="../Faculty/Karthik Sir.png" alt="">
+  </div>
+  <h3>Dr. Karthik A</h3>
+  <p class="role">Nano Science and Technology</p>
+  <p class="org"></p>
+</div>
+
+<!-- Card 3 (example - add photo + details) -->
+<div class="person-card"
+     onclick="openProfile(this)"
+     data-name=" Dr.K.Kiruthika"
+     data-designation="Associate Professor"
+     data-dept="Department of Mathematics"
+     data-email="📧:kiruthika@ksrct.ac.in"
+     data-photo="../Faculty/Kiruthika%20MAM.png"
+     data-research="Fuzzy Algebra, Intuitionistic Fuzzy Algebra and Neutrosophic Fuzzy Set"
+     data-scholar=" https://scholar.google.com/citations?user=Yq6fyssAAAAJ"
+     data-researchgate="#"
+     data-scopus="https://www.scopus.com/authid/detail.uri?authorId=60031107200"
+     data-wos=" https://www.webofscience.com/wos/author/record/AFI-3985-2022"
+     data-orcid=" https://orcid.org/0000-0002-1740-3362"
+>
+  <div class="profile-pic">
+    <img src="../Faculty/Kiruthika%20MAM.png" alt="">
+  </div>
+  <h3> Dr.K.Kiruthika</h3>
+  <p class="role">Mathematics</p>
+  <p class="org"></p>
+</div>
+<!-- Card 4 -->
+<div class="person-card"
+     onclick="openProfile(this)"
+     data-name="Dr. Kavitha Kandiah"
+     data-designation="Associate Professor"
+     data-dept="Department of FoodTechnology"
+     data-email="📧:kkavitha07@gmail.com"
+     data-photo="../Faculty/Kavitha%20Mam.png"
+     data-research="Polymer Nanocomposites | Nanobiomaterials & Bone Regeneration | In‑vitro & In‑vivo Toxicology | Microbial Biocompounds & Synbiotic Formulations in Food | Sustainable Carbon Derivatives | Energy Storage Applications | 3D Bioprinting | Biosensors  "
+     data-scholar="https://scholar.google.com/citations?user=ODd7GqQAAAAJ"
+     data-researchgate="https://www.researchgate.net/profile/Kavitha-Kandiah?ev=hdr_xprf"
+     data-scopus="https://www.scopus.com/authid/detail.uri?authorId=58563885600"
+     data-wos=" https://www.webofscience.com/wos/author/record/HHM-4869-2022"
+     data-orcid="#https://orcid.org/0000-0003-1711-1535"
+>
+  <div class="profile-pic">
+    <img src="../Faculty/Kavitha%20Mam.png" alt="">
+  </div>
+  <h3>Dr. Kavitha Kandiah</h3>
+  <p class="role">FoodTechnology</p>
+  <p class="org"></p>
+</div>
+
+<!-- Card 5 -->
+<div class="person-card"
+     onclick="openProfile(this)"
+     data-name="Dr. V. P. Devarajan"
+     data-designation="Assistant Professor"
+     data-dept="Department of Physics"
+     data-email="📧:vpdevarajanbu@gmail.com"
+     data-photo="../Faculty\Devarajan sirr.jpeg"
+     data-research="Quantum Materials & Inorganic-Organic Hybrids Multifunctional Quantum Dots/Nanostructures, White LEDs, Chemical sensors/Supercapacitors, Hydrogen production/Photocatalysis, Biolabeling/Cell target  "
+     data-scholar="  https://scholar.google.com/citations?user=W0Ve0csAAAAJ"
+     data-researchgate=" https://www.researchgate.net/profile/Devarajan-V-P"
+     data-scopus="https://www.scopus.com/authid/detail.uri?authorId=55403430000"
+     data-wos="  https://www.webofscience.com/wos/author/record/F-1117-2016"
+     data-orcid="  https://orcid.org/0000-0003-4223-8589"
+>
+  <div class="profile-pic">
+    <img src="../Faculty\Devarajan sirr.jpeg" alt="">
+  </div>
+  <h3>Dr. V. P. Devarajan </h3>
+  <p class="role">Physics</p>
+  <p class="org"></p>
+  </div>
+<!-- Card 6 -->
+<div class="person-card"
+     onclick="openProfile(this)"
+     data-name="Dr. R. Satheeshkumar"
+     data-designation="Assistant Professor"
+     data-dept="Department of Chemistry"
+     data-email="📧:satheeshkumarr@ksrct.ac.in"
+     data-photo="../Faculty/Satheesh Sir.png"
+     data-research="Synthetic organic chemistry, multistep synthetic approaches, medicinal chemistry, iron
+chelators for the treatment of Alzheimer&#39;s disease"
+     data-scholar="https://scholar.google.com/citations?user=64Y5lHEAAAAJ&amp;hl=en"
+     data-researchgate="https://www.researchgate.net/profile/Satheeshkumar-Rajendran"
+     data-scopus="https://www.scopus.com/authid/detail.uri?authorId=58726994500"
+     data-wos="https://www.webofscience.com/wos/author/record/F-3684-2016"
+     data-orcid="https://orcid.org/0000-0001-8492-286X"
+>
+  <div class="profile-pic">
+    <img src="../Faculty/Satheesh Sir.png" alt="">
+  </div>
+  <h3>Dr. R. Satheeshkumar</h3>
+  <p class="role">Chemistry</p>
+  <p class="org"></p>
+</div>
+
+<!-- Card 7 -->
+<div class="person-card"
+     onclick="openProfile(this)"
+     data-name=" U. Nithiyanantham"
+     data-designation="Assistant Professor"
+     data-dept="Department of Physics"
+     data-email="📧:anandnithi22@gmail.com"
+     data-photo="../Faculty/nithi%20sir.png"
+     data-research="Nano and composite materials for energy storage and conversion applications
+ Dye-sensitised solar cells (DSSCs)
+Thermal energy storage 
+Thermoelectric devices
+Supercapacitors
+"
+     data-scholar="https://scholar.google.com/citations?hl=en&user=G7H4TYMAAAAJ&view_op=list_works&sortby=pubdate"
+     data-researchgate="#"
+     data-scopus="https://www.scopus.com/authid/detail.uri?authorId=55931734500"
+     data-wos="#"
+     data-orcid="https://orcid.org/0000-0001-5969-7883"
+>
+  <div class="profile-pic">
+    <img src="../Faculty/nithi%20sir.png" alt="">
+  </div>
+  <h3>U. Nithiyanantham</h3>
+  <p class="role">Physics</p>
+  <p class="org"></p>
+</div>
+<!-- Card 8 -->
+ <div class="person-card"
+     onclick="openProfile(this)"
+     data-name="Mr. N. Jeeva"
+     data-designation="Assistant Professor"
+     data-dept="Department of Mathematics"
+     data-email="📧:jeevapirc2405@gmail.com"
+     data-photo="../Faculty/Jeeva%20Sir.jpeg"
+     data-research="Nonlinear Differential Equations, Fractional Differential Equations, Epidemiological Modeling, Infectious Disease, Asymptotic Methods, Numerical Analysis, Proposed Iterative Techniques, Artificial Neural Network & Machine Learning."
+     data-scholar="https://scholar.google.com/citations?user=GgVkX4wAAAAJ&hl=en&authuser=1"
+     data-researchgate="https://www.researchgate.net/profile/N-Jeeva/research"
+     data-scopus="https://www.scopus.com/authid/detail.uri?authorId=58802985900"
+     data-wos="https://www.webofscience.com/wos/author/record/JPK-6185-2023"
+     data-orcid="https://orcid.org/0009-0001-9674-4658"
+>
+  <div class="profile-pic">
+   <img src="../Faculty/Jeeva%20Sir.jpeg" alt="">
+  </div>
+  <h3 class="name">Mr.N.Jeeva</h3>
+  <p class="role">Mathematics</p>
+</div>
+
+    </div>
+</section>
+
+<!-- Bottom Bar -->
+<footer class="footer-bottom-bar">
+    <div class="footer-bottom-left">
+        Page Updated: Dec 22nd, 2025 |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="footer-bottom-right">
+        © 2025 KSRCT CRFD. All Rights Reserved.
+        <span class="social-icons">
+            <a href="https://www.facebook.com/ksrct1994" target="_blank">f</a>
+<a href="https://twitter.com/ksrct" target="_blank">X</a>
+<a href="https://www.linkedin.com/school/k-s-rangasamy-college-of-technology/" target="_blank">in</a>
+
+        </span>
+    </div>
+</footer>
+<script src="people_js.js"></script>
+
+
+<!-- SIMPLE POPUP -->
+<div id="profilePopup" class="popup-overlay">
+  <div class="popup-box">
+    <span class="popup-close" onclick="closeProfile()">✕</span>
+
+    <div class="popup-top">
+
+  <!-- LEFT : PHOTO -->
+  <div class="popup-left">
+    <img id="popupPhoto" src="" alt="">
+  </div>
+
+  <!-- RIGHT : DETAILS -->
+  <div class="popup-right">
+    <h3 id="popupName"></h3>
+    <p id="popupDesignation"></p>
+    <h2 class="dep" id="popupDept"></h2>
+    <h2 class="em" id="popupEmail">
+      <span class="gmail-icon" aria-hidden="true"></span>
+      <span id="popupEmailText"></span>
+    </h2>
+  </div>
+
+</div>
+    <div class="popup-right">
+      <h4 class="popup-heading">Area of Research</h4>
+      <p class="popup-research" id="popupResearch"></p>
+
+      <!-- RIGHT LINKS -->
+     <!-- RIGHT LINKS -->
+<div class="popup-links">
+  <div class="profile-card-right">
+    <h4 class="profile-title">Profile Links</h4>
+
+    <div class="profile-icons">
+      <a id="linkScholar" target="_blank" title="Google Scholar" rel="noopener">
+        <img src="../Profile/Google_Scholar_logo.svg.png" alt="Google Scholar">
+      </a>
+
+      <a id="linkRG" target="_blank" title="ResearchGate" rel="noopener">
+        <img src="../Profile/Researchgate.png" alt="ResearchGate">
+      </a>
+
+      <a id="linkScopus" target="_blank" title="Scopus" rel="noopener">
+        <img src="../Profile/Scopus.png" alt="Scopus">
+      </a>
+
+      <a id="linkWos" target="_blank" title="Web of Science" rel="noopener">
+        <img src="../Profile/wos.png" alt="Web of Science">
+      </a>
+
+      <a id="linkOrcid" target="_blank" title="ORCID" rel="noopener">
+        <img src="../Profile/orcid.png" alt="ORCID">
+      </a>
+    </div>
+
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

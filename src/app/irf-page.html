@@ -1,0 +1,166 @@
+<div class="irf-page min-h-screen bg-white text-[#333]">
+  <main class="px-6 pb-20 pt-10 sm:px-8 lg:px-12">
+    <div class="mx-auto max-w-[1200px]">
+      <h2 class="mb-8 text-[28px] font-extrabold text-[#0056b3]">Institute Research Fellowship (IRF)</h2>
+
+      <!-- Completed Section -->
+      <section class="mb-14" aria-label="Completed Scholars">
+        <div class="irf-section-header">
+          <div class="irf-section-title-wrap">
+            <span class="irf-section-accent"></span>
+            <h3 class="irf-section-title">Completed</h3>
+          </div>
+          <span class="irf-badge-completed">
+            {{ completedScholars.length }} Scholars
+          </span>
+        </div>
+
+        <div class="grid w-full grid-cols-1 justify-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-[24px]">
+          <article
+            *ngFor="let scholar of completedScholars"
+            class="flip-card"
+            tabindex="0"
+            (keydown.enter)="openProfile(scholar)"
+            (keydown.space)="openProfile(scholar); $event.preventDefault()"
+          >
+            <div class="flip-card-inner">
+              <!-- Front Side -->
+              <div class="flip-card-front">
+                <div class="photo-frame">
+                  <img [src]="scholar.photo" [alt]="scholar.name" loading="lazy" />
+                </div>
+                <h3 class="faculty-name-front">{{ scholar.name }}</h3>
+              </div>
+
+              <!-- Back Side -->
+              <div class="flip-card-back">
+                <h3 class="faculty-name-back">{{ scholar.name }}</h3>
+                <p class="dept-name-back">{{ scholar.shortDepartment }}</p>
+                <button
+                  class="view-profile-btn"
+                  type="button"
+                  (click)="openProfile(scholar); $event.stopPropagation()"
+                >
+                  Click to view profile ↗
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Pursuing Section -->
+      <section class="mb-8" aria-label="Pursuing Scholars">
+        <div class="irf-section-header">
+          <div class="irf-section-title-wrap">
+            <span class="irf-section-accent"></span>
+            <h3 class="irf-section-title">Pursuing</h3>
+          </div>
+          <span class="irf-badge-pursuing">
+            Active Cycle
+          </span>
+        </div>
+
+        <div *ngIf="pursuingScholars.length; else noPursuing" class="grid w-full grid-cols-1 justify-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-[24px]">
+          <article
+            *ngFor="let scholar of pursuingScholars"
+            class="flip-card"
+            tabindex="0"
+            (keydown.enter)="openProfile(scholar)"
+            (keydown.space)="openProfile(scholar); $event.preventDefault()"
+          >
+            <div class="flip-card-inner">
+              <!-- Front Side -->
+              <div class="flip-card-front">
+                <div class="photo-frame">
+                  <img [src]="scholar.photo" [alt]="scholar.name" loading="lazy" />
+                </div>
+                <h3 class="faculty-name-front">{{ scholar.name }}</h3>
+              </div>
+
+              <!-- Back Side -->
+              <div class="flip-card-back">
+                <h3 class="faculty-name-back">{{ scholar.name }}</h3>
+                <p class="dept-name-back">{{ scholar.shortDepartment }}</p>
+                <button
+                  class="view-profile-btn"
+                  type="button"
+                  (click)="openProfile(scholar); $event.stopPropagation()"
+                >
+                  Click to view profile ↗
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <ng-template #noPursuing>
+          <div class="irf-empty-state">
+            <p class="m-0 font-semibold text-slate-700">Currently no scholars under pursuing status.</p>
+            <p class="m-0 mt-1 text-xs text-slate-500">All current candidates have successfully completed their tenure. Upcoming batch selections will be listed here.</p>
+          </div>
+        </ng-template>
+      </section>
+    </div>
+  </main>
+
+  <footer class="flex flex-wrap items-center justify-between gap-3 bg-[#082447] px-[8%] py-4 text-[14px] text-white">
+    <div>
+      Page Updated: {{ pageUpdated }} |
+      <a class="mx-1 text-white no-underline" href="#">Terms of Use</a> |
+      <a class="mx-1 text-white no-underline" href="#">Privacy Policy</a>
+    </div>
+    <div>&copy; 2025 KSRCT CRFD. All Rights Reserved.</div>
+  </footer>
+</div>
+
+<div
+  *ngIf="selectedScholar as scholar"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+  (click)="closeProfile()"
+>
+  <section
+    class="relative max-h-[82vh] w-full max-w-[980px] overflow-y-auto overflow-x-hidden rounded-[18px] bg-white px-6 py-7 text-left shadow-2xl sm:px-10 sm:py-8"
+    (click)="$event.stopPropagation()"
+    aria-modal="true"
+    role="dialog"
+    [attr.aria-label]="scholar.name + ' profile'"
+  >
+    <button class="absolute right-6 top-4 text-[34px] font-normal leading-none text-[#0d2140]" type="button" (click)="closeProfile()" aria-label="Close profile">
+      &times;
+    </button>
+
+    <div class="grid gap-7 lg:grid-cols-[210px_1fr_300px]">
+      <img class="h-[230px] w-[210px] rounded-[14px] border-4 border-[#d6ad3c] bg-white object-contain object-center" [src]="scholar.photo" [alt]="scholar.name" />
+
+      <div class="pt-1">
+        <h2 class="m-0 mb-3 text-[19px] font-medium leading-tight text-[#0d2140]">{{ scholar.name }}</h2>
+        <p class="m-0 mb-3 text-[16px] font-extrabold text-black">{{ scholar.designation }}</p>
+        <p class="m-0 text-[16px] leading-normal text-[#111827]">{{ scholar.department }}</p>
+      </div>
+
+      <aside class="mt-2 self-start rounded-lg bg-[#f8f9fb] px-5 py-5 shadow-[0_5px_14px_rgba(0,0,0,0.07)]">
+        <h3 class="m-0 mb-3 border-b border-[#ddd] pb-2 text-center text-[15px] font-semibold text-[#002147]">Profile Links</h3>
+        <div class="flex flex-nowrap justify-center gap-3">
+          <a
+            *ngFor="let key of profileLinkKeys"
+            class="flex h-[46px] w-[46px] flex-none items-center justify-center rounded-[10px] border border-[#e6e6e6] bg-white transition hover:-translate-y-0.5 hover:border-[#d6ad3c] hover:shadow-md"
+            [class.hidden]="!hasLink(scholar, key)"
+            [href]="scholar[key]!"
+            target="_blank"
+            rel="noopener"
+            [attr.aria-label]="profileIcons[key].label"
+            [title]="profileIcons[key].label"
+          >
+            <img class="h-[24px] w-[24px] object-contain" [src]="profileIcons[key].icon" [alt]="profileIcons[key].label" />
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="mt-7">
+      <h3 class="m-0 mb-4 text-[21px] font-extrabold text-[#0056b3]">Area of Research</h3>
+      <p class="m-0 text-[18px] leading-8 text-[#24364d]">{{ scholar.research }}</p>
+    </div>
+  </section>
+</div>

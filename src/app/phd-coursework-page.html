@@ -1,0 +1,205 @@
+<!-- Sub-navigation for Guidelines (Regulations & Courseworks) -->
+<nav class="page-subnav flex items-center justify-center gap-3 px-6 py-3" aria-label="Guidelines navigation">
+  <span class="mr-2 text-xs font-bold uppercase tracking-wider text-slate-500">Guidelines:</span>
+  <a
+    routerLink="/phd_regulations.html"
+    class="rounded-full border border-slate-200 bg-white px-5 py-1.5 text-xs font-bold text-slate-600 transition-all hover:bg-slate-100 hover:text-slate-900"
+  >
+    Regulations
+  </a>
+  <a
+    routerLink="/phd_coursework.html"
+    class="rounded-full bg-[#082447] px-5 py-1.5 text-xs font-bold text-white shadow-xs transition-all"
+  >
+    Courseworks
+  </a>
+</nav>
+
+<!-- Hero Section with Modern Aesthetic -->
+<section class="relative overflow-hidden bg-gradient-to-br from-[#00152e] via-[#002147] to-[#0056b3] py-16 text-white">
+  <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-blue-400/10 blur-3xl"></div>
+  <div class="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-teal-400/10 blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-6xl px-6 text-center">
+    <div class="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-300">
+      <span>Anna University Approved Syllabus</span>
+    </div>
+
+    <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
+      Ph.D. Course Works Curriculum
+    </h1>
+    
+    <p class="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
+      Mandatory coursework structure, domain electives, credit allocation, and evaluation guidelines prescribed by the Centre for Research for doctoral scholars.
+    </p>
+
+    <!-- Quick Stats Cards -->
+    <div class="mt-10 grid grid-cols-2 gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md sm:grid-cols-4 md:gap-6">
+      <div class="text-center">
+        <p class="text-3xl font-extrabold text-blue-400">8 - 16</p>
+        <p class="mt-1 text-xs font-medium text-slate-300 uppercase tracking-wider">Required Credits</p>
+      </div>
+      <div class="text-center">
+        <p class="text-3xl font-extrabold text-blue-400">Grade B</p>
+        <p class="mt-1 text-xs font-medium text-slate-300 uppercase tracking-wider">Min. Passing Grade</p>
+      </div>
+      <div class="text-center">
+        <p class="text-3xl font-extrabold text-blue-400">1 - 2 Yrs</p>
+        <p class="mt-1 text-xs font-medium text-slate-300 uppercase tracking-wider">Completion Window</p>
+      </div>
+      <div class="text-center">
+        <p class="text-3xl font-extrabold text-blue-400">80%</p>
+        <p class="mt-1 text-xs font-medium text-slate-300 uppercase tracking-wider">Min. Attendance</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Coursework Process Timeline Section -->
+<section class="bg-slate-50 py-16">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="text-center">
+      <h2 class="text-2xl font-bold tracking-tight text-[#002147] md:text-3xl">Coursework Execution Workflow</h2>
+      <p class="mt-2 text-sm text-slate-600">Sequential milestones for registering, completing, and clearing coursework credits</p>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div *ngFor="let item of timelineSteps" class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#0056b3] hover:shadow-xl">
+        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#002147] text-white font-extrabold text-sm">
+          {{ item.step }}
+        </div>
+        <h3 class="mt-4 text-base font-bold text-slate-900">{{ item.title }}</h3>
+        <p class="mt-2 text-xs leading-relaxed text-slate-600">{{ item.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Coursework Catalog Section -->
+<section class="py-16 bg-white">
+  <div class="mx-auto max-w-6xl px-6">
+
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between border-b border-slate-200 pb-6">
+      <div>
+        <h2 class="text-2xl font-bold text-[#002147] md:text-3xl">Prescribed Courses Catalog</h2>
+        <p class="mt-1 text-sm text-slate-500">Explore mandatory core courses, publication ethics, and domain electives</p>
+      </div>
+
+      <!-- Search and Filter Controls -->
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <!-- Category Filter Buttons -->
+        <div class="inline-flex rounded-xl bg-slate-100 p-1">
+          <button (click)="selectedCategory = 'all'" [class.bg-white]="selectedCategory === 'all'" [class.shadow-sm]="selectedCategory === 'all'" [class.text-[#0056b3]]="selectedCategory === 'all'" class="rounded-lg px-3 py-1.5 text-xs font-bold text-slate-600 transition-all">All</button>
+          <button (click)="selectedCategory = 'core'" [class.bg-white]="selectedCategory === 'core'" [class.shadow-sm]="selectedCategory === 'core'" [class.text-[#0056b3]]="selectedCategory === 'core'" class="rounded-lg px-3 py-1.5 text-xs font-bold text-slate-600 transition-all">Core</button>
+          <button (click)="selectedCategory = 'ethics'" [class.bg-white]="selectedCategory === 'ethics'" [class.shadow-sm]="selectedCategory === 'ethics'" [class.text-[#0056b3]]="selectedCategory === 'ethics'" class="rounded-lg px-3 py-1.5 text-xs font-bold text-slate-600 transition-all">Ethics</button>
+          <button (click)="selectedCategory = 'elective'" [class.bg-white]="selectedCategory === 'elective'" [class.shadow-sm]="selectedCategory === 'elective'" [class.text-[#0056b3]]="selectedCategory === 'elective'" class="rounded-lg px-3 py-1.5 text-xs font-bold text-slate-600 transition-all">Electives</button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="relative min-w-[220px]">
+          <input type="text" [(ngModel)]="searchQuery" placeholder="Search by course or code..." class="w-full rounded-xl border border-slate-300 bg-slate-50 py-2 pl-9 pr-4 text-xs font-medium text-slate-800 focus:border-[#0056b3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-2.5 h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course List Cards / Table Grid -->
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      <div *ngFor="let course of filteredCourses" class="group relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#0056b3] hover:shadow-lg">
+        <div>
+          <div class="flex items-center justify-between gap-2">
+            <span class="rounded-lg bg-blue-50 px-3 py-1 text-xs font-extrabold text-[#0056b3] border border-blue-100">
+              {{ course.code }}
+            </span>
+
+            <div class="flex items-center gap-2">
+              <span *ngIf="course.isMandatory" class="rounded-full bg-amber-50 px-2.5 py-0.5 text-[11px] font-bold text-amber-700 border border-amber-200">
+                Compulsory
+              </span>
+              <span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-bold text-slate-600">
+                {{ course.credits }} Credits
+              </span>
+            </div>
+          </div>
+
+          <h3 class="mt-4 text-base font-bold text-slate-900 group-hover:text-[#0056b3] transition-colors">
+            {{ course.title }}
+          </h3>
+
+          <p class="mt-2 text-xs font-medium text-slate-500">
+            Department / Domain: <span class="text-slate-700 font-semibold">{{ course.department }}</span>
+          </p>
+
+          <p class="mt-3 text-sm leading-relaxed text-slate-600">
+            {{ course.description }}
+          </p>
+        </div>
+
+        <div class="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-medium text-slate-500">
+          <span>Schedule: {{ course.semester }}</span>
+          <a [href]="course.syllabusLink" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-[#0056b3] hover:underline">
+            <span>View Syllabus</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="filteredCourses.length === 0" class="mt-8 rounded-2xl border border-dashed border-slate-300 bg-slate-50 py-12 text-center">
+      <p class="text-sm font-semibold text-slate-500">No coursework matched your filter or search criteria.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Related Guidelines & Downloadables -->
+<section class="bg-slate-50 py-16">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="text-center">
+      <h2 class="text-2xl font-bold text-[#002147] md:text-3xl">Coursework Downloads & Forms</h2>
+      <p class="mt-1 text-sm text-slate-600">Download official registration forms and coursework evaluation guidelines</p>
+    </div>
+
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div>
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-[#0056b3] font-bold text-sm">📄</div>
+          <h3 class="mt-3 text-sm font-bold text-slate-900">Coursework Registration Form</h3>
+          <p class="mt-1 text-xs text-slate-500">Standard form for submitting course choices to Centre for Research.</p>
+        </div>
+        <a href="https://cfr.annauniv.edu/research/regulations/PhD-Regulations-2020.pdf" target="_blank" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[#0056b3] hover:underline">
+          Download PDF ↗
+        </a>
+      </div>
+
+      <div class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div>
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-[#0056b3] font-bold text-sm">📊</div>
+          <h3 class="mt-3 text-sm font-bold text-slate-900">Credit Exemption Rules</h3>
+          <p class="mt-1 text-xs text-slate-500">Guidelines for credit transfer and M.Phil exemption criteria.</p>
+        </div>
+        <a href="https://cfr.annauniv.edu/research/regulations/PhD-Regulations-2020.pdf" target="_blank" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[#0056b3] hover:underline">
+          Download PDF ↗
+        </a>
+      </div>
+
+      <div class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div>
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-[#0056b3] font-bold text-sm">🎓</div>
+          <h3 class="mt-3 text-sm font-bold text-slate-900">Anna University Course List</h3>
+          <p class="mt-1 text-xs text-slate-500">Full catalog of approved PG & Ph.D. subjects with syllabus details.</p>
+        </div>
+        <a href="https://cfr.annauniv.edu/research/regulations/PhD-Regulations-2020.pdf" target="_blank" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[#0056b3] hover:underline">
+          Visit Anna Univ Portal ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-[#082447] py-6 text-center text-sm text-white">
+  <p>© 2025 KSRCT CFRD. All Rights Reserved.</p>
+</footer>

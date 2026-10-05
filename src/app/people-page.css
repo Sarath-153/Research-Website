@@ -1,0 +1,178 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.people-page-font {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.gmail-icon {
+  width: 26px;
+  height: 20px;
+  flex: 0 0 26px;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 193'%3E%3Cpath fill='%234285F4' d='M58.182 192.05V93.14L0 49.53v124.08c0 10.19 8.26 18.44 18.44 18.44h39.742z'/%3E%3Cpath fill='%2334A853' d='M197.818 192.05h39.74c10.19 0 18.44-8.25 18.44-18.44V49.53l-58.18 43.61v98.91z'/%3E%3Cpath fill='%23EA4335' d='M197.818 17.06v76.08L256 49.53V26.27c0-20.45-23.28-32.06-39.74-19.94l-18.44 10.73z'/%3E%3Cpath fill='%23FBBC04' d='M58.182 17.06L39.74 6.33C23.28-5.79 0 5.82 0 26.27v23.26l58.182 43.61V17.06z'/%3E%3Cpath fill='%23C5221F' d='M58.182 93.14l70.108 52.58 70.108-52.58V17.06L128.29 69.64 58.182 17.06v76.08z'/%3E%3C/svg%3E");
+}
+
+/* 3D Flip Card Animation Styles */
+.flip-card {
+  perspective: 1000px;
+  background-color: transparent;
+  width: 100%;
+  max-width: 250px;
+  height: 260px;
+  margin: 0 auto;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 12px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+}
+
+/* Front Side */
+.flip-card-front {
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #f0f0f0;
+}
+
+.photo-frame {
+  width: 135px;
+  height: 135px;
+  border-radius: 8px;
+  border: 3.5px solid #d6ad3c;
+  overflow: hidden;
+  background-color: #fff;
+  margin: 0 0 14px 0;
+  flex-shrink: 0;
+  box-shadow: 0 6px 18px rgba(214, 173, 60, 0.22);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.faculty-name-front {
+  font-size: 14.5px;
+  font-weight: 750;
+  color: #082447;
+  margin: 0;
+  line-height: 1.35;
+  text-align: center;
+  max-width: 95%;
+}
+
+/* Back Side (Blue theme matching image) */
+.flip-card-back {
+  background: linear-gradient(145deg, #002147 0%, #004080 100%);
+  color: #ffffff;
+  transform: rotateY(180deg);
+  border: 2px solid #d6ad3c;
+  overflow: hidden;
+  position: relative;
+}
+
+.flip-card-back::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+.flip-card-back::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.faculty-name-back {
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+  z-index: 1;
+}
+
+.dept-name-back {
+  font-size: 11px;
+  font-weight: 800;
+  color: #d6ad3c;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  z-index: 1;
+}
+
+.view-profile-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.view-profile-btn:hover {
+  background: #ffffff;
+  color: #002147;
+  border-color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
