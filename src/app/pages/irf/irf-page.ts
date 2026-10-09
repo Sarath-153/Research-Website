@@ -12,6 +12,7 @@ interface IrfScholar {
   photo: string;
   research: string;
   status: 'completed' | 'pursuing';
+  irfDate?: string;
   scholar?: string;
   researchgate?: string;
   scopus?: string;
@@ -29,35 +30,13 @@ interface IrfScholar {
 export class IrfPageComponent {
   protected readonly scholars: IrfScholar[] = [
     {
-      name: 'S Akila',
-      designation: 'Research Scholar',
-      department: 'Department of Mathematics',
-      shortDepartment: 'Department of Mathematics',
-      photo: '/legacy/Faculty/akila1_irf.png',
-      status: 'completed',
-      research:
-        'Differential Equations, Fractional Differential Equations, Numerical Analysis, Functional Analysis and Algebra.',
-      scholar: 'https://scholar.google.com/citations?user=37RntQoAAAAJ&hl=en',
-      orcid: 'https://orcid.org/0009-0000-8954-8109',
-    },
-    {
-      name: 'A Thulasi',
-      designation: 'Research Scholar',
-      department: 'Department of Mathematics',
-      shortDepartment: 'Department of Mathematics',
-      photo: '/legacy/Faculty/Thulasi_irf.png',
-      status: 'completed',
-      research:
-        'Artificial Intelligence in Civil Engineering, Machine Learning for construction Materials, Concrete Strength Prediction using AI.',
-      researchgate: 'https://www.researchgate.net/profile/Thulasi-Rajkumar?ev=hdr_xprf',
-    },
-    {
       name: 'Savitha Saravanan',
       designation: 'Full-Time Research Scholar',
       department: 'Department of Nanoscience and Technology',
       shortDepartment: 'Nanoscience and Technology',
       photo: '/legacy/Faculty/savitha_irf.png',
-      status: 'completed',
+      status: 'pursuing',
+      irfDate: 'Oct-2023 to Till-on-date',
       research:
         'Green synthesis of nanoparticles and nanocomposites, nanostructured materials, photocatalysis, wastewater treatment, carbon-based functional materials, corrosion protection, and biological studies.',
       scholar: 'https://shorturl.at/PRJ5H',
@@ -66,12 +45,38 @@ export class IrfPageComponent {
       orcid: 'https://orcid.org/0009-0009-9300-6543',
     },
     {
+      name: 'A Oviya Darshni',
+      designation: 'Research Scholar',
+      department: 'Department of Chemistry',
+      shortDepartment: 'Chemistry',
+      photo: '/legacy/Faculty/oviya_irf.png',
+      status: 'pursuing',
+      irfDate: 'Feb-2024 to Till-on-date',
+      research: 'Energy storage materials, sensor materials, supercapacitor, green synthesis, catalysis, and electrochemistry.',
+      scholar: 'https://scholar.google.com/citations?hl=en&user=PgCRMvAAAAAJ',
+      orcid: 'https://orcid.org/0009-0008-8411-377X',
+    },
+    {
+      name: 'S Akila',
+      designation: 'Research Scholar',
+      department: 'Department of Mathematics',
+      shortDepartment: 'Department of Mathematics',
+      photo: '/legacy/Faculty/akila1_irf.png',
+      status: 'pursuing',
+      irfDate: 'Feb-2025 to Till-on-date',
+      research:
+        'Differential Equations, Fractional Differential Equations, Numerical Analysis, Functional Analysis and Algebra.',
+      scholar: 'https://scholar.google.com/citations?user=37RntQoAAAAJ&hl=en',
+      orcid: 'https://orcid.org/0009-0000-8954-8109',
+    },
+    {
       name: 'S Ranjitha',
       designation: 'Research Scholar',
       department: 'Department of Mathematics',
       shortDepartment: 'Mathematics',
       photo: '/legacy/Faculty/ranjitha_irf.png',
-      status: 'completed',
+      status: 'pursuing',
+      irfDate: 'Feb-2025 to Till-on-date',
       research:
         'Fluid dynamics, numerical analysis, computational analysis, micropolar fluids, boundary layer, nonlinear differential equations, numerical simulation, and MATLAB.',
       scholar: 'https://scholar.google.com/citations?user=-HEd0QEAAAAJ&hl=en&authuser=1',
@@ -79,12 +84,23 @@ export class IrfPageComponent {
       orcid: 'https://orcid.org/0000-0003-0634-7665',
     },
     {
+      name: 'Surendhar',
+      designation: 'Research Scholar',
+      department: 'Department of Science and Humanities',
+      shortDepartment: 'Research Scholar',
+      photo: '/legacy/Faculty/surendhar_irf.jpg',
+      status: 'pursuing',
+      irfDate: 'Feb-2025 to Till-on-date',
+      research: 'Applied Engineering and Interdisciplinary Research Systems.',
+    },
+    {
       name: 'Athira A Nair',
       designation: 'Research Scholar',
       department: 'Department of Biotechnology',
       shortDepartment: 'Biotechnology',
       photo: '/legacy/Faculty/athira_irf.jpg',
-      status: 'completed',
+      status: 'pursuing',
+      irfDate: 'Nov-2025 to Till-on-date',
       research:
         'Antimicrobial resistance (AMR), microbial metagenomics, NGS, poultry-based AMR, environmental AMR, One Health, and AI and computational modelling of biological systems.',
       scholar: 'https://scholar.google.com/citations?user=cOBgWjkAAAAJ&hl=en',
@@ -92,15 +108,46 @@ export class IrfPageComponent {
       orcid: 'https://orcid.org/0009-0000-1549-6609',
     },
     {
-      name: 'A Oviya Darshni',
+      name: 'A Thulasi',
       designation: 'Research Scholar',
-      department: 'Department of Chemistry',
+      department: 'Department of Mathematics',
+      shortDepartment: 'Department of Mathematics',
+      photo: '/legacy/Faculty/Thulasi_irf.png',
+      status: 'pursuing',
+      irfDate: 'Nov-2025 to Till-on-date',
+      research:
+        'Artificial Intelligence in Civil Engineering, Machine Learning for construction Materials, Concrete Strength Prediction using AI.',
+      researchgate: 'https://www.researchgate.net/profile/Thulasi-Rajkumar?ev=hdr_xprf',
+    },
+    {
+      name: 'Renuka P',
+      designation: 'Research Scholar',
+      department: 'Research Scholar',
       shortDepartment: 'Research Scholar',
-      photo: '/legacy/Faculty/oviya_irf.png',
+      photo: '/legacy/Faculty/renuka_irf.png',
       status: 'completed',
-      research: 'Energy storage materials, sensor materials, supercapacitor, green synthesis, catalysis, and electrochemistry.',
-      scholar: 'https://scholar.google.com/citations?hl=en&user=PgCRMvAAAAAJ',
-      orcid: 'https://orcid.org/0009-0008-8411-377X',
+      irfDate: 'Apr-2023 to June-2026',
+      research: 'Research Scholar under Institute Research Fellowship (IRF).',
+    },
+    {
+      name: 'Valarmathi A',
+      designation: 'Research Scholar',
+      department: 'Research Scholar',
+      shortDepartment: 'Research Scholar',
+      photo: '/legacy/Faculty/valarmathi_irf.jpg',
+      status: 'completed',
+      irfDate: 'Apr-2023 to Aug-2025',
+      research: 'Research Scholar under Institute Research Fellowship (IRF).',
+    },
+    {
+      name: 'Deeba S',
+      designation: 'Research Scholar',
+      department: 'Research Scholar',
+      shortDepartment: 'Research Scholar',
+      photo: '/legacy/Faculty/deepa_irf.jpg',
+      status: 'completed',
+      irfDate: 'Aug-2024 to Sept-2025',
+      research: 'Research Scholar under Institute Research Fellowship (IRF).',
     },
   ];
 

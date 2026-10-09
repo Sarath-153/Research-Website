@@ -8,13 +8,13 @@
     Download official application forms, grant proposal templates, guidelines, and circulars issued by the Center for Research &amp; Development.
   </p>
 
-  <div class="space-y-4">
-    <div *ngFor="let d of downloads" class="flex items-center justify-between rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-[#0056b3]">
-      <div>
+  <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+    <div *ngFor="let d of downloads" class="flex items-center justify-between rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-[#0056b3] hover:shadow-md">
+      <div class="pr-3">
         <h3 class="text-base font-bold text-[#002147]">{{ d.title }}</h3>
-        <span class="text-xs font-semibold text-slate-500">Category: {{ d.cat }} | Size: {{ d.size }}</span>
+        <span class="mt-1 block text-xs font-semibold text-slate-500">Category: {{ d.cat }} | Size: {{ d.size }}</span>
       </div>
-      <button class="inline-flex items-center gap-2 rounded-lg bg-[#0056b3] px-4 py-2 text-xs font-bold text-white hover:bg-[#002147]">
+      <button class="inline-flex shrink-0 items-center gap-2 rounded-lg bg-[#0056b3] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#002147]">
         Download
       </button>
     </div>

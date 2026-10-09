@@ -11,7 +11,7 @@
   min-height: calc(100vh - 100px);
   place-items: center;
   overflow: hidden;
-  background-image: url('./components/resech image.png');
+  background-image: url('../../components/resech image.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,7 +20,8 @@
 .hero-shade {
   position: absolute;
   inset: 0;
-  background: rgba(15, 32, 53, 0.42);
+  background: linear-gradient(135deg, rgba(0, 33, 71, 0.38) 0%, rgba(0, 75, 160, 0.28) 100%);
+  pointer-events: none;
 }
 
 .hero h1 {
@@ -813,26 +814,33 @@
 }
 
 .recognition-grid article {
-  display: grid;
-  justify-items: center;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   min-width: 0;
+  text-align: center;
 }
 
 .recognition-grid img {
   display: block;
-  width: 48px;
-  height: 52px;
+  width: 88px;
+  height: 80px;
   object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.recognition-grid article:hover img {
+  transform: scale(1.05);
 }
 
 .recognition-grid h3 {
   margin: 0;
   max-width: 180px;
   color: #111827;
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 
@@ -942,8 +950,8 @@
   }
 
   .recognition-grid img {
-    width: 62px;
-    height: 68px;
+    width: 88px;
+    height: 80px;
   }
 
   .recognition-grid h3 {

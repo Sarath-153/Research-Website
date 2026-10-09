@@ -10,7 +10,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
-import { convertedLegacyPages } from './converted-legacy-pages';
+import { convertedLegacyPages } from '../../converted-legacy-pages';
 
 @Component({
   selector: 'app-legacy-page',

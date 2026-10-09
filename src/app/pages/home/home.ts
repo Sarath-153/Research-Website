@@ -65,28 +65,29 @@ export class HomeComponent {
 
   protected readonly recognitions: Recognition[] = [
     {
-      title: 'DBT STAR, DSIR Recognised ISRO',
-      image: '/legacy/shared/Anna University.jpeg',
+      title: 'Department of Science and Technology (DST)',
+      image: '/legacy/shared/dst_logo.png',
     },
     {
-      title: 'Affiliated to Anna University, Chennai',
-      image: '/legacy/shared/Anna University.jpeg',
+      title: 'All India Council for Technical Education (AICTE)',
+      image: '/legacy/shared/aicte_logo.png',
     },
     {
-      title: 'Accredited by NAAC with A++ (CGPA: 3.56)',
-      image: '/legacy/shared/Anna University.jpeg',
+      title: 'National Technical Textiles Mission (NTTM)',
+      image: '/legacy/shared/nttm_logo.png',
     },
     {
-      title: '9 Courses Accredited by NBA under Tier-I',
-      image: '/legacy/shared/Anna University.jpeg',
+      title:
+        'Department of Scientific and Industrial Research - Scientific and Industrial Research Organisation (DSIR-SIRO)',
+      image: '/legacy/shared/dsir_logo.png',
     },
     {
-      title: '201–300 Band (Engineering Rankings 2024)',
-      image: '/legacy/shared/Anna University.jpeg',
+      title: 'Tamil Nadu State Council for Science and Technology (TNSCST)',
+      image: '/legacy/shared/tnscst_logo.png',
     },
     {
-      title: '201–300 Band (Engineering Rankings 2024)',
-      image: '/legacy/shared/Anna University.jpeg',
+      title: 'Indian Science Technology and Engineering facilities Map (I-STEM)',
+      image: '/legacy/shared/istem_logo.png',
     },
   ];
 
