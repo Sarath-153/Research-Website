@@ -1,3 +1,8 @@
+<section class="bg-gradient-to-r from-[#002147] to-[#0056b3] py-10 text-center text-white">
+  <p class="text-xs font-semibold tracking-widest uppercase opacity-80">Home &gt; Events &gt; News &amp; Events</p>
+  <h1 class="mt-2 text-3xl font-extrabold md:text-4xl">News &amp; Events</h1>
+</section>
+
 <main class="mx-auto max-w-6xl px-6 py-16">
   <!-- Latest News Section -->
   <section class="mb-12">
@@ -6,9 +11,25 @@
       <h2 class="text-2xl font-bold tracking-tight text-[#082447]">Latest News</h2>
     </div>
     <div class="space-y-4">
-      <div *ngFor="let item of latestNews" class="rounded-xl border-l-4 border-[#082447] bg-slate-50 p-6 shadow-sm transition hover:shadow-md">
-        <h3 class="text-lg font-bold text-[#082447]">{{ item.title }}</h3>
-        <p class="mt-1 text-slate-600">{{ item.org }}</p>
+      <div
+        *ngFor="let item of latestNews"
+        (click)="openEventDetails(item)"
+        class="group flex cursor-pointer flex-col justify-between rounded-xl border-l-4 border-[#082447] border-y border-r border-slate-200 bg-slate-50 p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-l-[#0056b3] hover:bg-white hover:shadow-xl sm:flex-row sm:items-center sm:gap-6"
+      >
+        <div class="flex-1">
+          <div class="mb-2 flex items-center gap-2.5">
+            <span class="rounded bg-[#082447]/10 px-2.5 py-0.5 text-xs font-bold text-[#082447]">{{ item.date }}</span>
+            <span class="rounded bg-blue-50 px-2 py-0.5 text-[11px] font-semibold text-[#0056b3] ring-1 ring-[#0056b3]/20">
+              {{ item.category }}
+            </span>
+          </div>
+          <h3 class="text-lg font-bold text-[#082447] transition-colors group-hover:text-[#0056b3]">{{ item.title }}</h3>
+          <p class="mt-1 text-sm text-slate-600">{{ item.organizer }}</p>
+        </div>
+        <div class="mt-4 flex shrink-0 items-center gap-1.5 text-xs font-bold text-[#0056b3] group-hover:text-[#082447] sm:mt-0">
+          <span>Read Full News</span>
+          <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+        </div>
       </div>
     </div>
   </section>
@@ -28,7 +49,8 @@
     <div class="grid gap-6 md:grid-cols-3">
       <article
         *ngFor="let ev of upcomingEvents"
-        class="group flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg"
+        (click)="openEventDetails(ev)"
+        class="group flex cursor-pointer flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#0056b3]/50 hover:shadow-xl"
       >
         <div>
           <div class="mb-3.5 flex items-center justify-between gap-2">
@@ -39,6 +61,10 @@
           <p *ngIf="ev.venue" class="mt-3 flex items-center gap-1.5 text-xs font-medium text-slate-500">
             <span>📍</span> {{ ev.venue }}
           </p>
+        </div>
+        <div class="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-xs font-semibold text-[#0056b3] group-hover:text-[#002147]">
+          <span>View Full Details</span>
+          <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
         </div>
       </article>
     </div>
@@ -59,24 +85,174 @@
     <div class="grid gap-6 md:grid-cols-3">
       <article
         *ngFor="let ev of previousEvents"
-        class="flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/70 p-6 shadow-sm transition hover:bg-white hover:shadow-md"
+        (click)="openEventDetails(ev)"
+        class="group flex cursor-pointer flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/70 p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:bg-white hover:border-slate-300 hover:shadow-lg"
       >
         <div>
           <div class="mb-3.5 flex items-center justify-between gap-2">
             <span class="inline-block rounded-md bg-slate-200 px-2.5 py-1 text-xs font-bold text-slate-700">{{ ev.date }}</span>
             <span class="rounded bg-slate-200/70 px-2 py-0.5 text-[11px] font-semibold text-slate-500">Completed</span>
           </div>
-          <h3 class="text-base font-bold text-slate-800">{{ ev.title }}</h3>
+          <h3 class="text-base font-bold text-slate-800 transition-colors group-hover:text-[#082447]">{{ ev.title }}</h3>
           <p *ngIf="ev.venue" class="mt-2 flex items-center gap-1.5 text-xs font-medium text-slate-500">
             <span>📍</span> {{ ev.venue }}
           </p>
-          <p *ngIf="ev.summary" class="mt-3 text-xs leading-relaxed text-slate-600">
-            {{ ev.summary }}
+          <p class="mt-3 text-xs leading-relaxed text-slate-600 line-clamp-3">
+            {{ ev.description }}
           </p>
+        </div>
+        <div class="mt-4 flex items-center justify-between border-t border-slate-200/60 pt-3 text-xs font-semibold text-slate-600 group-hover:text-[#002147]">
+          <span>View Details</span>
+          <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
         </div>
       </article>
     </div>
   </section>
+
+  <!-- Event Full Details Modal Dialog -->
+  <div
+    *ngIf="selectedEvent"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/65 p-4 backdrop-blur-xs sm:p-6"
+    (click)="closeEventDetails()"
+  >
+    <div
+      class="relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl transition-all animate-fadeIn"
+      (click)="$event.stopPropagation()"
+    >
+      <!-- Close Button -->
+      <button
+        type="button"
+        (click)="closeEventDetails()"
+        class="absolute right-3.5 top-3.5 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow-md backdrop-blur-xs transition-all hover:bg-white hover:text-black hover:scale-105 active:scale-95"
+        title="Close dialog"
+        aria-label="Close dialog"
+      >
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Scrollable Modal Body -->
+      <div class="overflow-y-auto">
+        <!-- Event Image Frame (Dedicated space for image) -->
+        <div class="relative h-56 w-full bg-slate-900 sm:h-64">
+          <img
+            *ngIf="selectedEvent.image"
+            [src]="selectedEvent.image"
+            [alt]="selectedEvent.title"
+            class="h-full w-full object-cover"
+          />
+          <!-- Elegant fallback placeholder if image not uploaded yet -->
+          <div
+            *ngIf="!selectedEvent.image"
+            class="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-[#002147] to-[#0056b3] p-6 text-center text-white"
+          >
+            <div class="mb-2 rounded-full bg-white/10 p-3.5">
+              <svg class="h-8 w-8 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <span class="text-xs font-bold tracking-wider uppercase text-white/90">Event Poster / Photograph Space</span>
+            <span class="mt-1 text-[11px] text-white/70">Image space allocated for this event</span>
+          </div>
+
+          <!-- Category and Status Badges Overlay -->
+          <div class="absolute bottom-3 left-4 flex flex-wrap items-center gap-2">
+            <span class="rounded-md bg-[#002147]/90 px-3 py-1 text-xs font-bold text-white shadow-xs backdrop-blur-xs">
+              {{ selectedEvent.category }}
+            </span>
+            <span
+              [ngClass]="{
+                'bg-emerald-600 text-white': selectedEvent.status === 'Forthcoming',
+                'bg-slate-700 text-white': selectedEvent.status === 'Completed',
+                'bg-blue-600 text-white': selectedEvent.status === 'News'
+              }"
+              class="rounded-md px-2.5 py-1 text-xs font-bold shadow-xs"
+            >
+              {{ selectedEvent.status === 'Forthcoming' ? '● Forthcoming' : selectedEvent.status === 'Completed' ? '✓ Completed' : '● Latest News' }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Event Details & Content -->
+        <div class="p-6 sm:p-8">
+          <!-- Title -->
+          <h3 class="text-xl font-extrabold leading-snug text-[#002147] sm:text-2xl">
+            {{ selectedEvent.title }}
+          </h3>
+
+          <!-- Event Meta Grid (Date, Time, Venue, Organizer) -->
+          <div class="mt-4 grid grid-cols-1 gap-3 rounded-xl border border-slate-100 bg-slate-50 p-4 text-xs sm:grid-cols-2">
+            <div class="flex items-start gap-2.5 text-slate-700">
+              <span class="text-base">📅</span>
+              <div>
+                <span class="block font-bold text-slate-900">{{ selectedEvent.date }}</span>
+                <span *ngIf="selectedEvent.time" class="text-slate-500">{{ selectedEvent.time }}</span>
+              </div>
+            </div>
+            <div *ngIf="selectedEvent.venue" class="flex items-start gap-2.5 text-slate-700">
+              <span class="text-base">📍</span>
+              <div>
+                <span class="block font-bold text-slate-900">Venue / Location</span>
+                <span class="text-slate-600">{{ selectedEvent.venue }}</span>
+              </div>
+            </div>
+            <div *ngIf="selectedEvent.organizer" class="flex items-start gap-2.5 border-t border-slate-200/60 pt-2.5 text-slate-600 sm:col-span-2">
+              <span class="text-base">🏛️</span>
+              <div>
+                <span class="font-bold text-slate-900">Organized by: </span>
+                <span>{{ selectedEvent.organizer }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content of the Event / News -->
+          <div class="mt-6">
+            <h4 class="text-xs font-bold tracking-wider uppercase text-slate-500">
+              {{ selectedEvent.status === 'News' ? 'News Coverage & Story' : 'About the Event' }}
+            </h4>
+            <p class="mt-2 text-sm leading-relaxed text-slate-700">
+              {{ selectedEvent.description }}
+            </p>
+          </div>
+
+          <!-- Key Highlights / Scope -->
+          <div *ngIf="selectedEvent.highlights?.length" class="mt-6">
+            <h4 class="text-xs font-bold tracking-wider uppercase text-slate-500">Key Highlights</h4>
+            <ul class="mt-2.5 space-y-2">
+              <li *ngFor="let h of selectedEvent.highlights" class="flex items-start gap-2.5 text-sm text-slate-700">
+                <span class="text-base font-bold leading-none text-[#0056b3]">✓</span>
+                <span>{{ h }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Modal Footer Actions -->
+          <div class="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-5">
+            <span *ngIf="selectedEvent.contact" class="text-xs text-slate-500">
+              <span class="font-semibold text-slate-700">Inquiries:</span> {{ selectedEvent.contact }}
+            </span>
+            <div class="ml-auto flex items-center gap-3">
+              <button
+                type="button"
+                (click)="closeEventDetails()"
+                class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-bold text-slate-700 transition hover:bg-slate-100"
+              >
+                Close
+              </button>
+              <button
+                *ngIf="selectedEvent.status === 'Forthcoming'"
+                type="button"
+                class="rounded-lg bg-[#002147] px-5 py-2 text-xs font-bold text-white shadow-xs transition hover:bg-[#0056b3]"
+              >
+                Register / Inquire →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer class="bg-[#082447] py-6 text-center text-sm text-white">

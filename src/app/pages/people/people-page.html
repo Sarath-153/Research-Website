@@ -1,8 +1,11 @@
 <div class="people-page-font min-h-screen bg-white text-[#333]">
-  <main class="px-6 pb-20 pt-10 sm:px-8 lg:px-12">
-    <h2 class="mb-8 ml-0 text-[28px] font-extrabold text-[#0056b3] lg:ml-[4.8%]">People</h2>
+  <section class="bg-gradient-to-r from-[#002147] to-[#0056b3] py-10 text-center text-white">
+    <p class="text-xs font-semibold tracking-widest uppercase opacity-80">Home &gt; People</p>
+    <h1 class="mt-2 text-3xl font-extrabold md:text-4xl">People</h1>
+  </section>
 
-    <section class="mx-auto mt-[10px] grid w-full max-w-[1200px] grid-cols-1 justify-center gap-6 px-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-[24px]" aria-label="People cards">
+  <main class="px-6 pb-20 pt-12 sm:px-8 lg:px-12">
+    <section class="mx-auto mt-4 grid w-full max-w-[1280px] grid-cols-1 justify-center gap-x-8 gap-y-10 px-0 sm:grid-cols-2 md:grid-cols-3 md:gap-x-9 md:gap-y-11 lg:grid-cols-4 lg:gap-x-10 lg:gap-y-12" aria-label="People cards">
       <article
         *ngFor="let person of people"
         class="flip-card"

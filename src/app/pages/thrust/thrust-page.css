@@ -24,8 +24,11 @@
 }
 
 .dept-card h3 {
-  min-height: 54px;
-  margin: 18px 0 12px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 14px 0 8px;
   color: #0056b3;
   font-size: 14px;
   font-weight: 800;
@@ -39,7 +42,7 @@
 }
 
 .dept-card h4 {
-  margin: 18px 0 10px;
+  margin: 10px 0 8px;
   color: #002147;
   font-size: 12px;
   font-weight: 800;

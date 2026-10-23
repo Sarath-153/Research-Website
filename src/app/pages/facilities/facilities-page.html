@@ -1,21 +1,56 @@
-
 <div class="facilities-page min-h-screen bg-white text-[#333]">
-  <main class="mx-auto w-full max-w-[1600px] px-4 pb-16 pt-10 sm:px-6 lg:px-8">
-    <h2 class="mb-3 text-[28px] font-extrabold text-[#082447]">Our Research Facilities</h2>
+  <section class="bg-gradient-to-r from-[#002147] to-[#0056b3] py-10 text-center text-white">
+    <p class="text-xs font-semibold tracking-widest uppercase opacity-80">Home &gt; Facilities</p>
+    <h1 class="mt-2 text-3xl font-extrabold md:text-4xl">Research Facilities</h1>
+  </section>
+
+  <main class="mx-auto w-full max-w-[1600px] px-4 pb-16 pt-12 sm:px-6 lg:px-8">
     <p class="mb-8 text-[16px] leading-7 text-[#444]">
       CFRD houses state-of-the-art laboratories, computational resources, and research infrastructure to support scholars and faculty across all disciplines.
     </p>
 
-    <div class="filter-row">
-      <button type="button" [class.active]="activeDepartment === 'all'" (click)="setDepartment('all')">All Departments</button>
-      <button
-        *ngFor="let department of departments"
-        type="button"
-        [class.active]="activeDepartment === department.key"
-        (click)="setDepartment(department.key)"
-      >
-        {{ department.name }}
-      </button>
+    <div class="facility-filter-bar">
+      <div class="filter-control-wrap">
+        <label for="departmentSelect" class="filter-label">
+          <svg class="filter-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+          </svg>
+          <span>Department:</span>
+        </label>
+        <div class="select-wrapper">
+          <select
+            id="departmentSelect"
+            class="department-select"
+            [value]="activeDepartment"
+            (change)="onDepartmentChange($event)"
+          >
+            <option value="all" [selected]="activeDepartment === 'all'">All Departments ({{ totalEquipmentCount }})</option>
+            <option *ngFor="let department of departments" [value]="department.key" [selected]="activeDepartment === department.key">
+              {{ department.name }} ({{ department.count }})
+            </option>
+          </select>
+          <span class="select-arrow" aria-hidden="true">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="filter-meta">
+        <span class="count-badge">
+          Showing <strong>{{ currentEquipmentCount }}</strong> Equipment
+          <ng-container *ngIf="activeDepartment === 'all'">across <strong>{{ departments.length }}</strong> Departments</ng-container>
+        </span>
+        <button
+          *ngIf="activeDepartment !== 'all'"
+          type="button"
+          class="reset-filter-btn"
+          (click)="setDepartment('all')"
+        >
+          Show All
+        </button>
+      </div>
     </div>
 
     <section *ngFor="let department of visibleDepartments" class="department-block">

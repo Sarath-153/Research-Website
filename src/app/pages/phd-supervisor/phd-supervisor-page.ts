@@ -11,10 +11,22 @@ import { RouterLink } from '@angular/router';
 })
 export class PhdSupervisorPageComponent {
   supervisors = [
-    { name: 'Dr. G. Vennila', dept: 'Civil Engineering', code: '2110034', area: 'Environmental & Water Resources' },
-    { name: 'Dr. A. M. Kalpana', dept: 'Computer Science and Engineering', code: '2440012', area: 'Cloud Computing & Networks' },
-    { name: 'Dr. P. S. Periasamy', dept: 'Electronics and Communication', code: '2230045', area: 'VLSI & Signal Processing' },
-    { name: 'Dr. R. Gopalakrishnan', dept: 'Mechanical Engineering', code: '2320018', area: 'Composite Materials & Tribology' }
+    {
+      name: 'Dr. G. Vennila',
+      dept: 'Civil Engineering',
+      domain: 'Civil & Environmental Engineering',
+      code: '2110034',
+      area: 'Environmental & Water Resources',
+      photo: '/legacy/Faculty/vennila.jpg',
+    },
+    {
+      name: 'Dr. R. Gopalakrishnan',
+      dept: 'Mechanical Engineering',
+      domain: 'Mechanical & Materials Engineering',
+      code: '2320018',
+      area: 'Composite Materials & Tribology',
+      photo: '/legacy/Faculty/gopalakrishnan.jpg',
+    },
   ];
 
   protected isGuidelinesOpen = false;

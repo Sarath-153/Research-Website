@@ -18,30 +18,24 @@ interface ThrustDepartment {
 export class ThrustPageComponent {
   protected readonly departments: ThrustDepartment[] = [
     {
-      name: 'Computer Science And Engineering',
-      image: '/legacy/Thrust/cse.png',
-      areas: ['Thrust areas will be updated.'],
-    },
-    {
-      name: 'Electronics And Communication Engineering',
-      image: '/legacy/Thrust/ECEE.webp',
-      areas: [
-        'Embedded Systems',
-        'Deep Learning and Image Processing',
-        'VLSI Design',
-        'Communication and Networking',
-        'Signal Processing',
-      ],
-    },
-    {
-      name: 'Mechanical Engineering',
-      image: '/legacy/Thrust/mech.jpg',
-      areas: ['Composite Materials', 'Welding Technology', 'Alternative Fuels', 'Tribology'],
-    },
-    {
       name: 'Artificial Intelligence And Data Science',
       image: '/legacy/Thrust/AIDSLOGOCOVER.jpg',
       areas: ['Data Science', 'Deep Technology', 'Automation', 'Data Analytics & Visualization'],
+    },
+    {
+      name: 'BioTechnology',
+      image: '/legacy/Thrust/BIO_TECHNOLOGY.png',
+      areas: ['Thrust areas will be updated.'],
+    },
+    {
+      name: 'Chemistry',
+      image: '/legacy/Thrust/chem.jpg',
+      areas: [
+        'Natural Products',
+        'Food Formulations',
+        'Nano Materials',
+        'Environmental Chemistry',
+      ],
     },
     {
       name: 'Civil Engineering',
@@ -54,74 +48,14 @@ export class ThrustPageComponent {
       ],
     },
     {
-      name: 'Mechatronics Engineering',
-      image: '/legacy/Thrust/mecha.jpg',
-      areas: ['Drone Technology', 'Electric Vehicle', 'FMEA in Industries', 'Nano Fluids'],
-    },
-    {
-      name: 'Chemistry',
-      image: '/legacy/Thrust/chem.jpg',
-      areas: [
-        'Natural Products',
-        'Food Formulations',
-        'Nano Materials',
-        'Environmental Chemistry',
-        'Fuel Cell',
-        'Photomaterials',
-        'Medicinal Chemistry',
-      ],
-    },
-    {
-      name: 'Food Technology',
-      image: '/legacy/Thrust/ft.avif',
-      areas: [
-        'Food Processing and Engineering',
-        'New Product Development and Innovation',
-        'Food Packaging Technology',
-        'Food Chemistry and Microbiology',
-        'Food Testing, Formulations and Preservations',
-        'Beverage Technology',
-      ],
-    },
-    {
-      name: 'MBA',
-      image: '/legacy/Thrust/mbaa.jpg',
-      areas: [
-        'Fintech & Digital Finance',
-        'Working Capital & MSME',
-        'Corporate Finance',
-        'Neuro Marketing & Customer Experience',
-        'Consumer Behaviour in Digital Platforms',
-        'Research on E-commerce',
-        'Stress Management',
-      ],
-    },
-    {
       name: 'Computer Science And Business System',
       image: '/legacy/Thrust/csbs01.webp',
       areas: ['Machine Learning', 'Deep Learning', 'Computer Networks'],
     },
     {
-      name: 'EE(VLSIDT)',
-      image: '/legacy/Thrust/vlsi.webp',
-      areas: ['Low Power VLSI Design', 'Machine Learning and Image Processing'],
-    },
-    {
-      name: 'Information Technology',
-      image: '/legacy/Thrust/informationtech.jpg',
-      areas: [
-        'Artificial Intelligence',
-        'Data Analytics',
-        'Deep Learning',
-        'Wireless Networking',
-        'Internet of Things',
-        'Cloud Computing',
-      ],
-    },
-    {
-      name: 'Textile Technology',
-      image: '/legacy/Thrust/textile1.jpg',
-      areas: ['Technical Textile'],
+      name: 'Computer Science And Engineering',
+      image: '/legacy/Thrust/cse.png',
+      areas: ['Thrust areas will be updated.'],
     },
     {
       name: 'CSE (AIML)',
@@ -131,9 +65,12 @@ export class ThrustPageComponent {
         'Machine Learning',
         'Deep Learning',
         'Computer Vision and Image Processing',
-        'Natural Language Processing',
-        'Data Analytics',
       ],
+    },
+    {
+      name: 'EE(VLSIDT)',
+      image: '/legacy/Thrust/vlsi.webp',
+      areas: ['Low Power VLSI Design', 'Machine Learning and Image Processing'],
     },
     {
       name: 'Electrical and Electronics Engineering',
@@ -146,25 +83,39 @@ export class ThrustPageComponent {
       ],
     },
     {
-      name: 'Physics',
-      image: '/legacy/Thrust/phy.jpg',
-      areas: ['Material Science', 'Luminescence', 'Energy Storage Devices'],
-    },
-    {
-      name: 'Mathematics',
-      image: '/legacy/Thrust/Mathematics.jpg',
+      name: 'Electronics And Communication Engineering',
+      image: '/legacy/Thrust/ECEE.webp',
       areas: [
-        'Mathematical Modeling',
-        'Differential Equations',
-        'Fluid Dynamics',
-        'Fuzzy Image Processing',
-        'Fuzzy Algebra',
+        'Embedded Systems',
+        'Deep Learning and Image Processing',
+        'VLSI Design',
+        'Communication and Networking',
       ],
     },
     {
       name: 'English',
       image: '/legacy/Thrust/ENGLISH.png',
       areas: ['Indian Writing in English', 'English Language Teaching'],
+    },
+    {
+      name: 'Food Technology',
+      image: '/legacy/Thrust/ft.avif',
+      areas: [
+        'Food Processing and Engineering',
+        'New Product Development and Innovation',
+        'Food Packaging Technology',
+        'Food Chemistry and Microbiology',
+      ],
+    },
+    {
+      name: 'Information Technology',
+      image: '/legacy/Thrust/informationtech.jpg',
+      areas: [
+        'Artificial Intelligence',
+        'Data Analytics',
+        'Deep Learning',
+        'Wireless Networking',
+      ],
     },
     {
       name: 'Master Of Computer Application (MCA)',
@@ -174,9 +125,37 @@ export class ThrustPageComponent {
         'Agentic AI',
         'Data Science',
         'Cloud Computing & DevOps',
-        'Full Stack Development',
-        'Computational Biology',
       ],
+    },
+    {
+      name: 'Mathematics',
+      image: '/legacy/Thrust/Mathematics.jpg',
+      areas: [
+        'Mathematical Modeling',
+        'Differential Equations',
+        'Fluid Dynamics',
+        'Fuzzy Image Processing',
+      ],
+    },
+    {
+      name: 'MBA',
+      image: '/legacy/Thrust/mbaa.jpg',
+      areas: [
+        'Fintech & Digital Finance',
+        'Working Capital & MSME',
+        'Corporate Finance',
+        'Neuro Marketing & Customer Experience',
+      ],
+    },
+    {
+      name: 'Mechanical Engineering',
+      image: '/legacy/Thrust/mech.jpg',
+      areas: ['Composite Materials', 'Welding Technology', 'Alternative Fuels', 'Tribology'],
+    },
+    {
+      name: 'Mechatronics Engineering',
+      image: '/legacy/Thrust/mecha.jpg',
+      areas: ['Drone Technology', 'Electric Vehicle', 'FMEA in Industries', 'Nano Fluids'],
     },
     {
       name: 'Nano Science And Technology',
@@ -186,23 +165,24 @@ export class ThrustPageComponent {
         'Thermal Barrier and Protective Coatings',
         'Anticorrosion and Antibacterial Surface Engineering',
         'Green Catalysis and Sustainable Chemistry',
-        'Nanomaterials for Water Purification and Wastewater Treatment',
-        'Energy Storage Materials',
-        'CO2 Capture, Conversion and Utilization',
-        'Tissue Engineering and Nanobiomaterials',
       ],
     },
     {
-      name: 'BioTechnology',
-      image: '/legacy/Thrust/BIO_TECHNOLOGY.png',
-      areas: ['Thrust areas will be updated.'],
+      name: 'Physics',
+      image: '/legacy/Thrust/phy.jpg',
+      areas: ['Material Science', 'Luminescence', 'Energy Storage Devices'],
     },
     {
       name: 'Tamil',
       image: '/legacy/Thrust/Tamil.png',
       areas: ['Thrust areas will be updated.'],
     },
-  ];
+    {
+      name: 'Textile Technology',
+      image: '/legacy/Thrust/textile1.jpg',
+      areas: ['Technical Textile'],
+    },
+  ].sort((a, b) => a.name.localeCompare(b.name));
 
   protected readonly pageUpdated = 'Dec 22nd, 2025';
 

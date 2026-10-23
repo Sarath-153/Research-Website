@@ -1234,6 +1234,25 @@ export class FacilitiesPageComponent {
     this.activeDepartment = key;
   }
 
+  protected onDepartmentChange(event: Event): void {
+    const target = event.target as HTMLSelectElement | null;
+    if (target) {
+      this.setDepartment(target.value);
+    }
+  }
+
+  protected get totalEquipmentCount(): number {
+    return this.equipment.length;
+  }
+
+  protected get currentEquipmentCount(): number {
+    if (this.activeDepartment === 'all') {
+      return this.equipment.length;
+    }
+    const dept = this.departments.find((d) => d.key === this.activeDepartment);
+    return dept ? dept.count : 0;
+  }
+
   protected openEquipment(equipment: FacilityEquipment): void {
     this.selectedEquipment = equipment;
   }

@@ -1,7 +1,10 @@
 <div class="thrust-page min-h-screen bg-white text-[#333]">
-  <main class="px-4 pb-16 pt-8 sm:px-6 lg:px-8">
-    <h2 class="mx-auto mb-8 w-full max-w-[1720px] text-[28px] font-extrabold text-[#0056b3]">Thrust Areas</h2>
+  <section class="bg-gradient-to-r from-[#002147] to-[#0056b3] py-10 text-center text-white">
+    <p class="text-xs font-semibold tracking-widest uppercase opacity-80">Home &gt; Research Ecosystem &gt; Thrust Areas</p>
+    <h1 class="mt-2 text-3xl font-extrabold md:text-4xl">Thrust Areas</h1>
+  </section>
 
+  <main class="px-4 pb-16 pt-12 sm:px-6 lg:px-8">
     <section class="mx-auto grid w-full max-w-[1720px] grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4" aria-label="Department thrust areas">
       <article *ngFor="let department of departments" class="dept-card">
         <img class="dept-image" [src]="department.image" [alt]="department.name" loading="lazy" />
@@ -11,7 +14,7 @@
         <h4>Thrust Areas</h4>
 
         <ul>
-          <li *ngFor="let area of department.areas">{{ area }}</li>
+          <li *ngFor="let area of department.areas.slice(0, 4)">{{ area }}</li>
         </ul>
       </article>
     </section>

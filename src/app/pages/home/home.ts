@@ -23,6 +23,19 @@ interface PublicationGroup {
   stats: PublicationStat[];
 }
 
+interface IpStatItem {
+  count: string;
+  label: string;
+}
+
+interface IpGroup {
+  category: string;
+  typeKey: 'patents' | 'copyrights';
+  subtitle: string;
+  badge: string;
+  stats: IpStatItem[];
+}
+
 interface GrantBreakdown {
   count: string;
   title: string;
@@ -65,7 +78,11 @@ export class HomeComponent {
 
   protected readonly recognitions: Recognition[] = [
     {
-      title: 'Department of Science and Technology (DST)',
+      title: 'DST - FIST',
+      image: '/legacy/shared/fist_logo.png',
+    },
+    {
+      title: 'DST - DBT',
       image: '/legacy/shared/dst_logo.png',
     },
     {
@@ -74,16 +91,31 @@ export class HomeComponent {
     },
     {
       title: 'National Technical Textiles Mission (NTTM)',
-      image: '/legacy/shared/nttm_logo.png',
+      image: '/legacy/shared/dst_logo.png',
     },
     {
-      title:
-        'Department of Scientific and Industrial Research - Scientific and Industrial Research Organisation (DSIR-SIRO)',
-      image: '/legacy/shared/dsir_logo.png',
+      title: 'DSIR - SIRO',
+      image: '/legacy/shared/dst_logo.png',
+    },
+    {
+      title: 'Board of Research in Nuclear Sciences (BRNS)',
+      image: '/legacy/shared/brns_logo.png',
+    },
+    {
+      title: 'Defence Research and Development Organisation (DRDO)',
+      image: '/legacy/shared/drdo_logo.png',
     },
     {
       title: 'Tamil Nadu State Council for Science and Technology (TNSCST)',
       image: '/legacy/shared/tnscst_logo.png',
+    },
+    {
+      title: 'University Grants Commission (UGC)',
+      image: '/legacy/shared/ugc_logo.png',
+    },
+    {
+      title: 'Indian Council of Social Science Research (ICSSR)',
+      image: '/legacy/shared/icssr_logo.png',
     },
     {
       title: 'Indian Science Technology and Engineering facilities Map (I-STEM)',
@@ -135,9 +167,12 @@ export class HomeComponent {
     ],
   };
 
-  protected readonly ipStats: PublicationGroup[] = [
+  protected readonly ipStats: IpGroup[] = [
     {
       category: 'Patents',
+      typeKey: 'patents',
+      subtitle: 'Inventions & Technological Disclosures',
+      badge: 'IPR Cell Portfolio',
       stats: [
         { count: '36+', label: 'Published & Filed' },
         { count: '450+', label: 'Patent Disclosures' },
@@ -146,6 +181,9 @@ export class HomeComponent {
     },
     {
       category: 'Copyrights',
+      typeKey: 'copyrights',
+      subtitle: 'Software, Literary & Creative Works',
+      badge: 'Registered Works',
       stats: [
         { count: '64+', label: 'Registered Works' },
         { count: '64+', label: 'Software & Designs' },

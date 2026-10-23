@@ -11,10 +11,28 @@ import { RouterLink } from '@angular/router';
 })
 export class ResearchPageComponent {
   centers = [
-    { title: 'Center for Nano Science & Technology', dept: 'Multidisciplinary', focus: 'Advanced Materials, Nanotechnology & Biosensors' },
-    { title: 'Center for Renewable Energy Systems', dept: 'Electrical & Mechanical', focus: 'Solar Energy, Bio-fuels & Smart Grid Integration' },
-    { title: 'Center for Artificial Intelligence & Robotics', dept: 'CSE / AI & DS', focus: 'Deep Learning, Robotics Automation & Data Analytics' },
-    { title: 'Center for Composite & Advanced Materials', dept: 'Mechanical / Civil', focus: 'Hybrid Composites, Welding & Material Testing' }
+    { title: 'Center for Artificial Intelligence & Data Science', dept: 'Artificial Intelligence And Data Science' },
+    { title: 'Center for Biotechnology', dept: 'BioTechnology' },
+    { title: 'Center for Chemical Sciences', dept: 'Chemistry' },
+    { title: 'Center for Civil Engineering', dept: 'Civil Engineering' },
+    { title: 'Center for Computer Science & Business Systems', dept: 'Computer Science And Business System' },
+    { title: 'Center for Computer Science & Engineering', dept: 'Computer Science And Engineering' },
+    { title: 'Center for Artificial Intelligence & Machine Learning', dept: 'CSE (AIML)' },
+    { title: 'Center for VLSI Design & Technology', dept: 'EE(VLSIDT)' },
+    { title: 'Center for Electrical & Electronics Engineering', dept: 'Electrical and Electronics Engineering' },
+    { title: 'Center for Electronics & Communication Engineering', dept: 'Electronics And Communication Engineering' },
+    { title: 'Center for English & Language Studies', dept: 'English' },
+    { title: 'Center for Food Technology', dept: 'Food Technology' },
+    { title: 'Center for Information Technology', dept: 'Information Technology' },
+    { title: 'Center for Computer Applications', dept: 'Master Of Computer Application (MCA)' },
+    { title: 'Center for Mathematical Sciences', dept: 'Mathematics' },
+    { title: 'Center for Management Studies', dept: 'MBA' },
+    { title: 'Center for Mechanical Engineering', dept: 'Mechanical Engineering' },
+    { title: 'Center for Mechatronics Engineering', dept: 'Mechatronics Engineering' },
+    { title: 'Center for Nano Science & Technology', dept: 'Nano Science And Technology' },
+    { title: 'Center for Physical Sciences', dept: 'Physics' },
+    { title: 'Center for Tamil Studies', dept: 'Tamil' },
+    { title: 'Center for Textile Technology', dept: 'Textile Technology' }
   ];
 
   protected isGuidelinesOpen = false;

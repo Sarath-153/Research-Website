@@ -116,7 +116,10 @@ export const routes: Routes = [
   // Downloads / Circulars
   { path: 'downloads', component: DownloadsPageComponent },
   { path: 'downloads.html', component: DownloadsPageComponent },
+  { path: 'circular', component: DownloadsPageComponent },
   { path: 'circular.html', component: DownloadsPageComponent },
+  { path: 'circulars', component: DownloadsPageComponent },
+  { path: 'circulars.html', component: DownloadsPageComponent },
 
   // Wildcard
   { path: '**', redirectTo: '' }

@@ -41,10 +41,10 @@
           </a>
         </li>
       </ul>
-      <a routerLink="/downloads" class="view-all-circulars">View All Circulars &rarr;</a>
+      <a routerLink="/circular.html" class="view-all-circulars">View All Circulars &rarr;</a>
     </div>
 
-    <a routerLink="/downloads" class="floating-circular" aria-label="Circulars">
+    <a routerLink="/circular.html" class="floating-circular" aria-label="Circulars">
       <div class="circular-btn">
         <svg class="paper-svg" viewBox="0 0 24 24" width="20" height="20" fill="#ffffff" stroke="none">
           <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
@@ -134,37 +134,41 @@
       <div class="header-divider"></div>
     </div>
 
-    <div class="publications-row">
-      <div *ngFor="let ip of ipStats" class="pub-scorecard">
-        <div class="scorecard-top">
-          <div class="ip-indicator-icon">
-            <svg *ngIf="ip.category === 'Patents'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0056b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-            <svg *ngIf="ip.category === 'Copyrights'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0056b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M14.83 14.83a4 4 0 1 1 0-5.66"/>
-            </svg>
+    <div class="ip-showcase-grid">
+      <article *ngFor="let ip of ipStats" class="ip-card" [ngClass]="'ip-card--' + ip.typeKey">
+        <div class="ip-card-header">
+          <div class="ip-header-main">
+            <div class="ip-icon-wrapper" [ngClass]="'ip-icon--' + ip.typeKey">
+              <!-- Shield badge for Patents -->
+              <svg *ngIf="ip.typeKey === 'patents'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+              <!-- Copyright symbol for Copyrights -->
+              <svg *ngIf="ip.typeKey === 'copyrights'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M14.83 14.83a4 4 0 1 1 0-5.66"/>
+              </svg>
+            </div>
+            <div class="ip-title-group">
+              <h3 class="ip-card-title">{{ ip.category }}</h3>
+              <p class="ip-card-subtitle">{{ ip.subtitle }}</p>
+            </div>
           </div>
-          <h3 class="scorecard-title">{{ ip.category }}</h3>
+          <span class="ip-badge" [ngClass]="'ip-badge--' + ip.typeKey">{{ ip.badge }}</span>
         </div>
 
-        <div class="scorecard-stats">
-          <div *ngFor="let stat of ip.stats; let last = last" class="scorecard-col" [class.no-border]="last">
-            <span class="scorecard-num">{{ stat.count }}</span>
-            <span class="scorecard-label">{{ stat.label }}</span>
+        <div class="ip-metrics-grid">
+          <div *ngFor="let stat of ip.stats" class="ip-metric-box">
+            <span class="ip-metric-val">{{ stat.count }}</span>
+            <span class="ip-metric-lbl">{{ stat.label }}</span>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 
   <section class="funded-research-section">
-    <h2>Funded Research</h2>
-    <p class="funded-intro">
-      K.S.Rangasamy College of Technology (KSRCT) facilitates research pursuits of its faculty members, research scholars, and students at scale with a strong emphasis on impactful outcomes. The institution maintains a dedicated focus on ensuring adequate funding support so that research projects and studies progress efficiently and satisfactorily.
-    </p>
-
     <div class="funded-card">
       <div class="funded-card-content">
         <h3>Sponsored Research Projects at KSRCT – 2007 Onwards</h3>
